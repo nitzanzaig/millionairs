@@ -14,57 +14,102 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginRight="71dp"
+        android:layout_marginBottom="450dp"
         android:text="WELCOME USER"
         android:textColor="#0B0A0A"
         android:textSize="36sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/gridLayout"
+        android:layout_width="584dp"
+        android:layout_height="65dp"
         android:layout_below="@+id/title_view"
+        android:layout_marginTop="52dp"
         android:columnCount="2"
         android:rowCount="2"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="52dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="182dp"
-        android:layout_height="178dp"
-        android:onClick="move"
-        app:srcCompat="@drawable/PERSONALDETAILES"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="276dp" />
+    </GridLayout>
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="184dp"
-        android:layout_height="177dp"
+        android:layout_width="173dp"
+        android:layout_height="169dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="200dp"
         android:onClick="income"
-        app:srcCompat="@drawable/moneyyy"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="276dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/moneyyy" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="181dp"
-        android:layout_height="185dp"
+        android:layout_width="177dp"
+        android:layout_height="169dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginBottom="100dp"
         android:onClick="budget"
-        app:srcCompat="@drawable/budgettt"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="482dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/budgettt" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="182dp"
-        android:layout_height="185dp"
+        android:layout_width="170dp"
+        android:layout_height="166dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="100dp"
         android:onClick="bot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bot1"
-        tools:layout_editor_absoluteX="215dp"
-        tools:layout_editor_absoluteY="482dp"
         tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="172dp"
+        android:layout_height="166dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginBottom="200dp"
+        android:onClick="move"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/personal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
