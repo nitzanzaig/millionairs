@@ -7,51 +7,30 @@
     android:background="@drawable/background2"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/title_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="71dp"
-        android:layout_marginLeft="71dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginRight="71dp"
-        android:layout_marginBottom="450dp"
-        android:text="WELCOME USER"
-        android:textColor="#0B0A0A"
-        android:textSize="36sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="177dp"
+        android:layout_height="169dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="600dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="100dp"
+        android:onClick="budget"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <GridLayout
-        android:id="@+id/gridLayout"
-        android:layout_width="584dp"
-        android:layout_height="65dp"
-        android:layout_below="@+id/title_view"
-        android:layout_marginTop="52dp"
-        android:columnCount="2"
-        android:rowCount="2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
-    </GridLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666"
+        app:srcCompat="@drawable/budgettt" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="173dp"
-        android:layout_height="169dp"
+        android:id="@+id/imageView5"
+        android:layout_width="170dp"
+        android:layout_height="172dp"
         android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
         android:layout_marginTop="270dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="200dp"
         android:onClick="income"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,37 +40,53 @@
         app:srcCompat="@drawable/moneyyy" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="177dp"
+        android:id="@+id/imageView5"
+        android:layout_width="173dp"
         android:layout_height="169dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginRight="200dp"
-        android:layout_marginBottom="100dp"
-        android:onClick="budget"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="income"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/budgettt" />
+        app:layout_constraintVertical_bias="0.972"
+        app:srcCompat="@drawable/credit" />
+
+    <TextView
+        android:id="@+id/title_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="450dp"
+        android:text="WELCOME USER"
+        android:textColor="#0B0A0A"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.536" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="170dp"
-        android:layout_height="166dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="63dp"
+        android:layout_height="78dp"
         android:onClick="bot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039"
         app:srcCompat="@drawable/bot1"
         tools:visibility="visible" />
 
