@@ -60,6 +60,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), logActivity.class);
         startActivity(intent);
     }
+    public void expenses(View view){
+        //Intent intent = new Intent(getApplicationContext(), budget.class);
+        //startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(), logActivity.class);
+        startActivity(intent);
+    }
+
     public void bot(View view){
         //Intent intent = new Intent(getApplicationContext(), bot.class);
         //startActivity(intent);
