@@ -4,8 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
     tools:context=".incomeActivity">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="414dp"
+        android:layout_height="90dp"
+        android:background="#6878EF"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="-5dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -20,10 +27,10 @@
         android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.648"
+        app:layout_constraintHorizontal_bias="0.675"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
@@ -47,15 +54,15 @@
         android:id="@+id/profile_image"
         android:layout_width="232dp"
         android:layout_height="167dp"
-        android:src="@drawable/income"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp"
+        android:src="@drawable/income2"
+        app:civ_border_color="#F3DC0D"
+        app:civ_border_width="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309" />
+        app:layout_constraintVertical_bias="0.265" />
 
     <EditText
         android:id="@+id/editTextNumber"

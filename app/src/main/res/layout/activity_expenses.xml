@@ -12,8 +12,8 @@
         android:id="@+id/profile_image"
         android:layout_width="119dp"
         android:layout_height="84dp"
-        android:src="@drawable/transportaion"
-        app:civ_border_color="#FF000000"
+        android:src="@drawable/bus1"
+        app:civ_border_color="#7EB359"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,8 +39,8 @@
         android:id="@+id/profile_image"
         android:layout_width="119dp"
         android:layout_height="84dp"
-        android:src="@drawable/health"
-        app:civ_border_color="#FF000000"
+        android:src="@drawable/healthPink"
+        app:civ_border_color="#F84A96"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +53,8 @@
         android:id="@+id/profile_image"
         android:layout_width="119dp"
         android:layout_height="84dp"
-        android:src="@drawable/food"
-        app:civ_border_color="#FF000000"
+        android:src="@drawable/groceries1"
+        app:civ_border_color="#E89E27"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,8 +67,8 @@
         android:id="@+id/profile_image"
         android:layout_width="119dp"
         android:layout_height="84dp"
-        android:src="@drawable/balling"
-        app:civ_border_color="#FF000000"
+        android:src="@drawable/balling1"
+        app:civ_border_color="#D57D1AB8"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,8 +80,8 @@
         android:id="@+id/profile_image"
         android:layout_width="119dp"
         android:layout_height="84dp"
-        android:src="@drawable/house"
-        app:civ_border_color="#FF000000"
+        android:src="@drawable/house1"
+        app:civ_border_color="#BD2A2A"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,6 +99,7 @@
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.553" />
@@ -107,11 +108,11 @@
         android:id="@+id/any_chart_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896">
+        app:layout_constraintVertical_bias="1.0">
 
     </com.anychart.AnyChartView>
 
@@ -120,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Transportation"
-        android:textColor="#C30D26DF"
+        android:textColor="#C3000000"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="229dp" />
@@ -130,7 +131,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Groceries"
-        android:textColor="#C30D26DF"
+        android:textColor="#C3000000"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="40dp"
         tools:layout_editor_absoluteY="332dp" />
@@ -140,7 +141,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home"
-        android:textColor="#C30D26DF"
+        android:textColor="#C3000000"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="312dp"
         tools:layout_editor_absoluteY="228dp" />
@@ -150,7 +151,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Education"
-        android:textColor="#C30D26DF"
+        android:textColor="#C3000000"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="173dp"
         tools:layout_editor_absoluteY="229dp" />
@@ -160,7 +161,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Health"
-        android:textColor="#C30D26DF"
+        android:textColor="#C3000000"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="312dp"
         tools:layout_editor_absoluteY="332dp" />
@@ -170,7 +171,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Leisure"
-        android:textColor="#C30D26DF"
+        android:textColor="#C3000000"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="182dp"
         tools:layout_editor_absoluteY="332dp" />
@@ -180,9 +181,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Other expense"
-        android:textColor="#C30D26DF"
+        android:textColor="#C3000000"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteX="27dp"
         tools:layout_editor_absoluteY="442dp" />
 
     <TextView
@@ -195,11 +196,11 @@
 
     <TextView
         android:id="@+id/textView9"
-        bold
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#C3070707"
         android:text="expenses"
+        android:textStyle="bold"
         android:textSize="30sp"
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="32dp" />
