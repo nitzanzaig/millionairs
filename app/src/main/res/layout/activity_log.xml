@@ -29,7 +29,6 @@
         android:background="#C30D26DF"
         android:onClick="move_to"
         android:text="Log in"
-        app:backgroundTint="C30D26DF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"

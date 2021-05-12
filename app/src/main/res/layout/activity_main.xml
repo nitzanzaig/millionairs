@@ -8,13 +8,14 @@
     android:backgroundTint="#F3F3F4"
     tools:context=".MainActivity">
 
+
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textView16"
         android:layout_width="414dp"
         android:layout_height="90dp"
         android:background="#6878EF"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="-4dp" />
+        tools:layout_editor_absoluteY="-5dp" />
 
     <ImageView
         android:id="@+id/imageView6"
