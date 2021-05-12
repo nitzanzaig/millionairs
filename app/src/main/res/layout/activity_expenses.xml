@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#99D3FA"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".income_expensesActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -25,8 +26,8 @@
         android:id="@+id/profile_image"
         android:layout_width="119dp"
         android:layout_height="84dp"
-        android:src="@drawable/education"
-        app:civ_border_color="#FF000000"
+        android:src="@drawable/education1"
+        app:civ_border_color="#90C4E3"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,35 +99,21 @@
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.554" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="346dp"
-        android:layout_height="50dp"
-        android:text="income and expenses"
-        android:textColor="#C30D26DF"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.553" />
 
     <com.anychart.AnyChartView
         android:id="@+id/any_chart_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintVertical_bias="0.896">
+
+    </com.anychart.AnyChartView>
 
     <TextView
         android:id="@+id/textView3"
@@ -195,7 +182,26 @@
         android:text="Other expense"
         android:textColor="#C30D26DF"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="442dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="414dp"
+        android:layout_height="90dp"
+        android:background="#6878EF"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="-2dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        bold
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
+        android:text="expenses"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="32dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

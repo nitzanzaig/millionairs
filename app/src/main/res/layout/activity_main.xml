@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
+    android:backgroundTint="#F3F3F4"
     tools:context=".MainActivity">
 
     <TextView
@@ -35,6 +36,7 @@
         android:layout_marginTop="600dp"
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="100dp"
+        android:background="@drawable/button_selector"
         android:onClick="budget"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +60,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.986" />
 
+
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="173dp"
@@ -65,13 +68,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
+        android:background="@drawable/button_selector"
+        android:elevation="20dp"
         android:onClick="income"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875"
+        app:layout_constraintVertical_bias="0.879"
         app:srcCompat="@drawable/credit" />
 
     <ImageView
@@ -82,13 +87,14 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
+        android:background="@drawable/button_selector"
         android:onClick="income"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442"
+        app:layout_constraintVertical_bias="0.43"
         app:srcCompat="@drawable/budgettt" />
 
     <TextView
@@ -116,6 +122,7 @@
         android:id="@+id/imageView4"
         android:layout_width="63dp"
         android:layout_height="78dp"
+        android:background="@drawable/button_selector"
         android:onClick="bot"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,6 +141,7 @@
         android:layout_marginTop="275dp"
         android:layout_marginEnd="200dp"
         android:layout_marginBottom="200dp"
+        android:background="@drawable/button_selector"
         android:onClick="move"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,13 +172,14 @@
         tools:layout_editor_absoluteY="435dp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="expenses"
-        android:textColor="#131313"
+        android:text="Expenses"
+        android:textColor="#070707"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="251dp"
-        tools:layout_editor_absoluteY="694dp" />
+        tools:layout_editor_absoluteX="233dp"
+        tools:layout_editor_absoluteY="753dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
