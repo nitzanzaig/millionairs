@@ -45,4 +45,4 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
 }
 
-// apply plugin: 'com.google.gms.google-services'  // Google Services plugin
+apply plugin: 'com.google.gms.google-services'  // Google Services plugin
