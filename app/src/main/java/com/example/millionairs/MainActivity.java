@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     public void income(View view){
         //Intent intent = new Intent(getApplicationContext(), income.class);
         //startActivity(intent);
-        Intent intent = new Intent(getApplicationContext(), logActivity.class);
+        Intent intent = new Intent(getApplicationContext(), incomeActivity.class);
         startActivity(intent);
     }
     public void budget(View view){
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     public void expenses(View view){
         //Intent intent = new Intent(getApplicationContext(), budget.class);
         //startActivity(intent);
-        Intent intent = new Intent(getApplicationContext(), logActivity.class);
+        Intent intent = new Intent(getApplicationContext(), income_expensesActivity.class);
         startActivity(intent);
     }
 
