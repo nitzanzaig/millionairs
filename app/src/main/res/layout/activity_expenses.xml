@@ -8,8 +8,16 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".income_expensesActivity">
 
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="414dp"
+        android:layout_height="90dp"
+        android:background="#111E77"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="642dp" />
+
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image101"
         android:layout_width="119dp"
         android:layout_height="84dp"
         android:src="@drawable/bus1"
@@ -23,7 +31,7 @@
         app:layout_constraintVertical_bias="0.222" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image102"
         android:layout_width="119dp"
         android:layout_height="84dp"
         android:src="@drawable/education1"
@@ -36,7 +44,7 @@
         app:layout_constraintVertical_bias="0.222" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image103"
         android:layout_width="119dp"
         android:layout_height="84dp"
         android:src="@drawable/mazrek"
@@ -50,7 +58,7 @@
         app:layout_constraintVertical_bias="0.383" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image104"
         android:layout_width="119dp"
         android:layout_height="84dp"
         android:src="@drawable/groceries1"
@@ -64,7 +72,7 @@
         app:layout_constraintVertical_bias="0.384" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image105"
         android:layout_width="119dp"
         android:layout_height="84dp"
         android:src="@drawable/balling1"
@@ -77,7 +85,7 @@
         app:layout_constraintVertical_bias="0.383" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image106"
         android:layout_width="119dp"
         android:layout_height="84dp"
         android:src="@drawable/house1"
@@ -91,7 +99,7 @@
         app:layout_constraintVertical_bias="0.222" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
+        android:id="@+id/profile_image107"
         android:layout_width="119dp"
         android:layout_height="84dp"
         android:src="@drawable/pl"
@@ -99,35 +107,42 @@
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.565" />
 
-    <com.anychart.AnyChartView
-        android:id="@+id/any_chart_view"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="4dp"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image108"
+        android:layout_width="63dp"
+        android:layout_height="57dp"
+        android:src="@drawable/graph"
+        app:civ_border_color="#FBF8F8"
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-    </com.anychart.AnyChartView>
+        app:layout_constraintVertical_bias="0.853" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:text="Transportation"
         android:textColor="#C3000000"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintBottom_toTopOf="@+id/profile_image104"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image101"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Groceries"
@@ -137,7 +152,7 @@
         tools:layout_editor_absoluteY="332dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home"
@@ -147,17 +162,17 @@
         tools:layout_editor_absoluteY="228dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Education"
         android:textColor="#C3000000"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="229dp" />
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="228dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Health"
@@ -167,7 +182,7 @@
         tools:layout_editor_absoluteY="332dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Leisure"
@@ -177,32 +192,35 @@
         tools:layout_editor_absoluteY="332dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Other expense"
         android:textColor="#C3000000"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="442dp" />
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="450dp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textView38"
         android:layout_width="414dp"
         android:layout_height="90dp"
-        android:background="#6878EF"
+        android:background="#111E77"
         tools:layout_editor_absoluteX="-3dp"
         tools:layout_editor_absoluteY="-2dp" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#F5F5F5"
-        android:text="expenses"
+        android:text="Expenses"
+        android:textColor="#0FEFDC"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

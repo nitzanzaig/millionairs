@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Millionairs">
-        <activity android:name=".incomeActivity"></activity>
+        <activity android:name=".BudgetMainActivity"></activity>
+        <activity android:name=".PersonalDetailsMainActivity" />
+        <activity android:name=".incomeActivity" />
         <activity android:name=".income_expensesActivity" />
         <activity android:name=".logActivity" />
         <activity android:name=".MainActivity">
