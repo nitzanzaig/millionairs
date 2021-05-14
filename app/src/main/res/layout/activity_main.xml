@@ -63,10 +63,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/any_chart_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_upper_purple"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.095" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
