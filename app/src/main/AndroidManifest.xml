@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Millionairs">
         <activity
             android:name=".MainActivity"
-            android:label="millionairs" >
+            android:label="millionairs">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
