@@ -1,77 +1,70 @@
 package com.example.millionairs;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.view.MenuItem;
 
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Pie;
+import com.example.millionairs.Fragments.BotFragment;
+import com.example.millionairs.Fragments.BudgetFragment;
+import com.example.millionairs.Fragments.ExpensesFragment;
+import com.example.millionairs.Fragments.IncomeFragment;
+import com.example.millionairs.Fragments.PersonalDetailsFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.millionairs.databinding.ActivityMainBinding;
+
+import org.jetbrains.annotations.NotNull;
 
 public class MainActivity extends AppCompatActivity {
 
-    AnyChartView anyChartView;
-    String[] months = {"Jan", "Feb", "Mar"};
-    int[] earnings = {500, 600, 800};
+    private ActivityMainBinding binding;
+    Fragment selectedFragment = null;
+    private final BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener = (BottomNavigationView.OnNavigationItemSelectedListener)(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        public final boolean onNavigationItemSelected(@NotNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.nav_personal_details:
+                    moveToFragment(new PersonalDetailsFragment());
+                    break;
+                case R.id.nav_bot:
+                    moveToFragment(new BotFragment());
+                    break;
+                case R.id.nav_expenses:
+                    moveToFragment(new ExpensesFragment());
+                    break;
+                case R.id.nav_income:
+                    moveToFragment(new IncomeFragment());
+                    break;
+                case R.id.nav_budget:
+                    moveToFragment(new BudgetFragment());
+                    break;
+            }
+            return false;
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        anyChartView = findViewById(R.id.any_chart_view);
-        setupPiechart();
+
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        moveToFragment(new BudgetFragment());
     }
 
-    public void setupPiechart() {
-        Pie pie = AnyChart.pie();
-        List<DataEntry> dataEntries = new ArrayList<>();
-        for (int i=0; i<months.length; i++){
-            dataEntries.add(new ValueDataEntry(months[i],earnings[i]));
-
-        }
-        pie.data(dataEntries);
-        anyChartView.setChart(pie);
-    }
-
-
-    public void move(View view){
-        //Intent intent = new Intent(getApplicationContext(), personaldetails.class);
-        //startActivity(intent);
-        Intent intent = new Intent(getApplicationContext(), logActivity.class);
-        startActivity(intent);
-    }
-
-    public void income(View view){
-        //Intent intent = new Intent(getApplicationContext(), income.class);
-        //startActivity(intent);
-        Intent intent = new Intent(getApplicationContext(), incomeActivity.class);
-        startActivity(intent);
-    }
-    public void budget(View view){
-        //Intent intent = new Intent(getApplicationContext(), budget.class);
-        //startActivity(intent);
-        Intent intent = new Intent(getApplicationContext(), logActivity.class);
-        startActivity(intent);
-    }
-    public void expenses(View view){
-        //Intent intent = new Intent(getApplicationContext(), budget.class);
-        //startActivity(intent);
-        Intent intent = new Intent(getApplicationContext(), income_expensesActivity.class);
-        startActivity(intent);
-    }
-
-    public void bot(View view){
-        //Intent intent = new Intent(getApplicationContext(), bot.class);
-        //startActivity(intent);
-        Intent intent = new Intent(getApplicationContext(), logActivity.class);
-        startActivity(intent);
+    public void moveToFragment(Fragment fragment){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
     }
 
 }

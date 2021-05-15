@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_personal_details"
+        android:icon="@drawable/personal"
+        android:title="" />
+
+    <item
+        android:id="@+id/nav_bot"
+        android:icon="@drawable/bot"
+        android:title="" />
+
+    <item
+        android:id="@+id/nav_budget"
+        android:icon="@drawable/calc"
+        android:title="" />
+
+    <item
+        android:id="@+id/nav_expenses"
+        android:icon="@drawable/wallet"
+        android:title="" />
+
+    <item
+        android:id="@+id/nav_income"
+        android:icon="@drawable/dollars"
+        android:title="" />
+
+</menu>
