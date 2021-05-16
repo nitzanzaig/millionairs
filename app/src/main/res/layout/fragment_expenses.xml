@@ -104,14 +104,15 @@
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="172dp"
-        android:layout_marginEnd="80dp"
         android:layout_marginStart="160dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="172dp"
         android:text="Other expense"
         android:textColor="#C3000000"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView40"
         app:layout_constraintEnd_toStartOf="@+id/profile_image108"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image107" />
 
@@ -241,16 +242,12 @@
         android:id="@+id/profile_image108"
         android:layout_width="63dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="129dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginStart="81dp"
+        android:layout_marginBottom="131dp"
         android:src="@drawable/graph"
         app:civ_border_color="#FBF8F8"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/textView40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView37"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image103"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toEndOf="@+id/textView37" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
