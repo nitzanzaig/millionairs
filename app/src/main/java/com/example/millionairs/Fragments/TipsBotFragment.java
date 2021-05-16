@@ -20,9 +20,9 @@ public class TipsBotFragment extends Fragment {
 
     ArrayList<String> messages = new ArrayList<>();
     ArrayAdapter arrayAdapter;
+    EditText chatEditText;
 
-    public void chat(View view){
-        EditText chatEditText = view.findViewById(R.id.chatEditText);
+    public void chat(){
 
     }
 
@@ -33,6 +33,7 @@ public class TipsBotFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tips_bot, container, false);
 
         ListView chat = view.findViewById(R.id.chatListView);
+        chatEditText = view.findViewById(R.id.chatEditText);
         arrayAdapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_list_item_1, messages);
         chat.setAdapter(arrayAdapter);
         messages.add("Bot: Hello, my name is Fin. I'm your private financial helper@! \n" +
@@ -45,7 +46,7 @@ public class TipsBotFragment extends Fragment {
                 "6. Fees and Commissions");
         messages.add("Bot: Please choose the subject you want to talk about");
         arrayAdapter.notifyDataSetChanged();
-        chat(view);
+        chat();
 
         return view;
     }
