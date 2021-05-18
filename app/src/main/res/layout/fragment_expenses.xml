@@ -110,13 +110,14 @@
 
     <TextView
         android:id="@+id/textView38"
+        style="@style/headline"
         android:text="Expenses"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/profile_image101"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/headline" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image101"

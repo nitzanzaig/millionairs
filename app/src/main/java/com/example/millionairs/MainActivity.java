@@ -2,6 +2,8 @@ package com.example.millionairs;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.millionairs.Fragments.BotFragment;
 import com.example.millionairs.Fragments.BudgetFragment;
@@ -59,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         moveToFragment(new BudgetFragment());
+
+       /* Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.gender));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);*/
     }
 
     public void moveToFragment(Fragment fragment){
@@ -66,5 +74,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
     }
+
 
 }
