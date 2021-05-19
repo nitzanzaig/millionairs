@@ -8,46 +8,44 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.millionairs.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TipsBotFragment extends Fragment {
 
-    ArrayList<String> messages = new ArrayList<>();
-    ArrayAdapter arrayAdapter;
-    EditText chatEditText;
-
-    public void chat(){
-
-    }
+    ImageView sendImageView;
+    EditText messageEditText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tips_bot, container, false);
-
-        ListView chat = view.findViewById(R.id.chatListView);
-        chatEditText = view.findViewById(R.id.chatEditText);
-        arrayAdapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_list_item_1, messages);
-        chat.setAdapter(arrayAdapter);
-        messages.add("Bot: Hello, my name is Fin. I'm your private financial helper@! \n" +
-                "Here we can talk about the following topics: ");
-        messages.add("Bot: 1. Insurances \n" +
-                "2. Communication \n" +
-                "3. Your financial rights \n" +
-                "4. Pension \n" +
-                "5. Your work rights \n" +
-                "6. Fees and Commissions");
-        messages.add("Bot: Please choose the subject you want to talk about");
-        arrayAdapter.notifyDataSetChanged();
-        chat();
-
+        sendImageView = view.findViewById(R.id.send_image_button);
+        messageEditText = view.findViewById(R.id.text_message);
+        sendImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = messageEditText.getText().toString();
+                if (message.isEmpty()){
+                    Toast.makeText(view.getContext(), "Please write a message", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    sendMessage(message);
+                }
+            }
+        });
         return view;
+    }
+
+    private void sendMessage(String message) {
+
     }
 }
