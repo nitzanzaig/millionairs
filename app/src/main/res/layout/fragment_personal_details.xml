@@ -1,14 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragments.PersonalDetailsFragment">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello Personal Details" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="414dp"
+                android:layout_height="90dp"
+                android:background="#111E77"
+                android:gravity="center"
+                android:text="Personal Details"
+                android:textColor="#0fefDC"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="45dp"
+                android:text="Age"
+                android:textColor="#111e77"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextNumber4"
+                android:layout_width="86dp"
+                android:layout_height="38dp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/textView02"
+                android:layout_width="109dp"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="206dp"
+                android:layout_height="43dp" />
+
+            <TextView
+                android:id="@+id/textView03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Household Size"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextNumber2"
+                android:layout_width="86dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="243dp"
+                android:layout_marginBottom="27dp"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Living Area"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="205dp"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home Expenses"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="357dp"
+                android:layout_height="61dp"
+                android:text="rate from 1-5 your abillity to save money in the following categories"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1-can't save at all          5- no problem"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="357dp"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1" />
+
+                <RadioButton
+                    android:id="@+id/radioButton14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2" />
+
+                <RadioButton
+                    android:id="@+id/radioButton15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3" />
+
+                <RadioButton
+                    android:id="@+id/radioButton17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="4" />
+
+                <RadioButton
+                    android:id="@+id/radioButton18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="5" />
+            </RadioGroup>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>
