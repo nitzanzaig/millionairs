@@ -2,8 +2,11 @@ package com.example.millionairs;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.millionairs.Fragments.BotFragment;
 import com.example.millionairs.Fragments.BudgetFragment;
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     moveToFragment(new BudgetFragment());
                     break;
             }
+
             return false;
         }
     });
@@ -62,17 +66,15 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         moveToFragment(new BudgetFragment());
 
-       /* Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.gender));
-        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner.setAdapter(myAdapter);*/
+
     }
 
     public void moveToFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
+
+
     }
 
 
