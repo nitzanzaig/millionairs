@@ -17,92 +17,126 @@
                 android:layout_width="414dp"
                 android:layout_height="90dp"
                 android:background="#111E77"
+                android:layout_marginBottom="30dp"
                 android:gravity="center"
                 android:text="Personal Details"
                 android:textColor="#0fefDC"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="45dp"
-                android:text="Age"
-                android:textColor="#111e77"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/editTextNumber4"
-                android:layout_width="86dp"
-                android:layout_height="38dp"
-                android:ems="10"
-                android:inputType="number" />
+                <TextView
+                    android:id="@+id/textView01"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="Age"
+                    android:textColor="#111e77"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView02"
-                android:layout_width="109dp"
-                android:layout_height="wrap_content"
-                android:text="Gender"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/editTextNumber4"
+                    :layout_marginBottom="27dp"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="243dp"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <Spinner
-                android:id="@+id/spinner1"
-                android:layout_width="206dp"
-                android:layout_height="43dp" />
+                <TextView
+                    android:id="@+id/textView02"
+                    android:layout_width="76dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="Gender"
+                    android:textColor="#111e77"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView03"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Household Size"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="152dp"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="243dp"
+                    android:layout_marginBottom="27dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/editTextNumber2"
-                android:layout_width="86dp"
-                android:layout_height="38dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="21dp"
-                android:layout_marginEnd="243dp"
-                android:layout_marginBottom="27dp"
-                android:ems="10"
-                android:inputType="number" />
+                <TextView
+                    android:id="@+id/textView03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="Household Size"
+                    android:textColor="#111e77"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Living Area"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/editTextNumber3"
+                    :layout_marginBottom="27dp"
+                    android:layout_width="133dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="243dp"
+                    android:layout_gravity="center_horizontal"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <Spinner
-                android:id="@+id/spinner2"
-                android:layout_width="205dp"
-                android:layout_height="45dp" />
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="Living area"
+                    android:textColor="#111e77"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home Expenses"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="148dp"
+                    android:layout_height="43dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="243dp"
+                    android:layout_marginBottom="27dp" />
+            </LinearLayout>
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="357dp"
-                android:layout_height="61dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="30dp"
                 android:text="rate from 1-5 your abillity to save money in the following categories"
                 android:textColor="#111e77"
                 android:textSize="20sp"
@@ -112,51 +146,126 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1-can't save at all          5- no problem"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="30dp"
+                android:text="1-can't save             5- no problem"
                 android:textColor="#111e77"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <RadioGroup
-                android:layout_width="357dp"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="Home Bills (electricty, water, gaz, etc.) "
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
-                <RadioButton
-                    android:id="@+id/radioButton16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="1" />
+            <SeekBar
+                android:id="@+id/SeekBarID"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:max="5"
+                android:progress="5"
+                android:scaleX="2"
+                android:scaleY="2" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="Leisure (shopping, grooming, resturants, vacations, etc.)"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
-                <RadioButton
-                    android:id="@+id/radioButton14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2" />
+            <SeekBar
+                android:id="@+id/SeekBarID1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:max="5"
+                android:progress="5"
+                android:scaleX="2"
+                android:scaleY="2" />
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="Transportaion (fuel, treatment, public transportation) "
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
-                <RadioButton
-                    android:id="@+id/radioButton15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="3" />
+            <SeekBar
+                android:id="@+id/SeekBarID2"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:max="5"
+                android:progress="5"
+                android:scaleX="2"
+                android:scaleY="2" />
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="Housing (mortgage, maintenance, house committee, ect.)"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
 
-                <RadioButton
-                    android:id="@+id/radioButton17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="4" />
+            <SeekBar
+                android:id="@+id/SeekBarID3"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:max="5"
+                android:progress="5"
+                android:scaleX="2"
+                android:scaleY="2" />
 
-                <RadioButton
-                    android:id="@+id/radioButton18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="5" />
-            </RadioGroup>
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:text="Loans and Credit Card Fees"
+                android:textColor="#111e77"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <SeekBar
+                android:id="@+id/SeekBarID4"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:max="5"
+                android:progress="5"
+                android:scaleX="2"
+                android:scaleY="2" />
+
 
         </LinearLayout>
     </LinearLayout>

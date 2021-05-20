@@ -3,31 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".Fragments.ConvoBotFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/barlayout_message_chat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_message_chat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#111E77">
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image_chat"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/bot" >
-            </de.hdodenhof.circleimageview.CircleImageView>
+                android:src="@drawable/bot"></de.hdodenhof.circleimageview.CircleImageView>
+
             <TextView
                 android:id="@+id/username_chat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
                 android:layout_marginLeft="26dp"
-                android:textColor="@android:color/white"
+                android:gravity="center"
                 android:text="Fin"
+                android:textAlignment="gravity"
+                android:textColor="#0FEFDC"
+                android:textSize="40sp"
                 android:textStyle="bold" />
 
         </androidx.appcompat.widget.Toolbar>
@@ -37,8 +42,8 @@
         android:id="@+id/recycler_view_chat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/barlayout_message_chat"
-        android:layout_above="@+id/relative_layout_bottom">
+        android:layout_above="@+id/relative_layout_bottom"
+        android:layout_below="@id/barlayout_message_chat">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -46,26 +51,26 @@
         android:id="@+id/relative_layout_bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp"
         android:layout_alignParentBottom="true"
-        android:background="#FFF" >
+        android:background="#FFF"
+        android:padding="6dp">
+
         <ImageView
             android:id="@+id/send_image_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/send_icon">
-        </ImageView>
+            android:src="@drawable/send_icon"></ImageView>
+
         <EditText
             android:id="@+id/text_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:hint="@string/write_your_message_here"
-            android:layout_toStartOf="@+id/send_image_button"
             android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp">
-        </EditText>
+            android:layout_marginRight="6dp"
+            android:layout_toStartOf="@+id/send_image_button"
+            android:background="@android:color/transparent"
+            android:hint="@string/write_your_message_here"></EditText>
     </RelativeLayout>
 
 </RelativeLayout>
