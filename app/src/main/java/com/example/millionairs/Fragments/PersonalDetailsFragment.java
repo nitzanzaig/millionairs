@@ -42,23 +42,20 @@ public class PersonalDetailsFragment extends Fragment {
 
         View view;
         view=inflater.inflate(R.layout.fragment_personal_details, container, false);
+
         Spinner dropdown = view.findViewById(R.id.spinner1);
-//create a list of items for the spinner.
         String[] items = new String[]{"Female", "Male","Other"};
-//create an adapter to describe how the items are displayed, adapters are used in several places in android.
-//There are multiple variations of this, but this is the basic variant.
-        ArrayAdapter<String> adapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_spinner_dropdown_item,items);
-//set the spinners adapter to the previously created one.
+        ArrayAdapter<String> adapter = new ArrayAdapter(view.getContext(),
+                android.R.layout.simple_spinner_dropdown_item,items);
         dropdown.setAdapter(adapter);
 
-     //spinner = (Spinner) view.findViewById(R.id.spinner1);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        /*ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(PersonalDetailsFragment.this,
-                android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.Gender));
-        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        myAdapter.setAdepter(myAdapter);
+        Spinner dropdown1 = view.findViewById(R.id.spinner2);
+        String[] items1 = new String[]{"North Israel", "Center Israel","South Israel"};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(view.getContext(),
+                android.R.layout.simple_spinner_dropdown_item,items1);
+        dropdown1.setAdapter(adapter1);
 
-*/
+
         seek_bar = view.findViewById(R.id.SeekBarID);
         seek_bar1 = view.findViewById(R.id.SeekBarID1);
         seek_bar2 = view.findViewById(R.id.SeekBarID2);
