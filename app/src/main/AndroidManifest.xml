@@ -9,18 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Millionairs">
-        <activity android:name=".TipBotActivity"></activity>
+        <activity android:name=".SignupMainActivity"></activity>
+        <activity android:name=".TipBotActivity" />
         <activity
             android:name=".MainActivity"
-            android:label="millionairs">
+            android:label="millionairs"></activity>
+        <activity android:name=".TempActivity" />
+        <activity android:name=".logActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TempActivity" />
-        <activity android:name=".logActivity" />
     </application>
 
 </manifest>

@@ -42,14 +42,14 @@ public class PersonalDetailsFragment extends Fragment {
 
         View view;
         view=inflater.inflate(R.layout.fragment_personal_details, container, false);
-        /*Spinner dropdown = view.findViewById(R.id.spinner1);
+        Spinner dropdown = view.findViewById(R.id.spinner1);
 //create a list of items for the spinner.
         String[] items = new String[]{"Female", "Male","Other"};
 //create an adapter to describe how the items are displayed, adapters are used in several places in android.
 //There are multiple variations of this, but this is the basic variant.
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item,items);
+        ArrayAdapter<String> adapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_spinner_dropdown_item,items);
 //set the spinners adapter to the previously created one.
-        dropdown.setAdapter(adapter);*/
+        dropdown.setAdapter(adapter);
 
      //spinner = (Spinner) view.findViewById(R.id.spinner1);
 // Create an ArrayAdapter using the string array and a default spinner layout

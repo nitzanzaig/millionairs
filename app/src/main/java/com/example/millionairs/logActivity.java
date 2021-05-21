@@ -27,5 +27,10 @@ public class logActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
-
+    public void go_signup(View view){
+        //Intent intent = new Intent(getApplicationContext(), income.class);
+        //startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(), SignupMainActivity.class);
+        startActivity(intent);
+    }
 }
