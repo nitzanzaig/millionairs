@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.millionairs.R;
+import com.example.millionairs.TipBotActivity;
 
 import java.util.Objects;
 
@@ -24,8 +25,7 @@ public class BotFragment extends Fragment {
     Button tipButton, infoButton;
 
     public void moveToInfo(View view){
-        Intent intent = new Intent(getActivity(), TipsBotFragment.class);
-        startActivity(intent);
+
     }
 
     @Override
@@ -50,11 +50,13 @@ public class BotFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Fragment fragment = new TipsBotFragment();
+                /*Fragment fragment = new TipsBotFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();
+                fragmentTransaction.commit();*/
+                Intent intent = new Intent(getActivity(), TipBotActivity.class);
+                startActivity(intent);
             }
         });
         return view;

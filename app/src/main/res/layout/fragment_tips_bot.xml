@@ -7,69 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.TipsBotFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/barlayout_message_chat"
+    <TextView
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_message_chat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#111E77">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image_chat"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/bot">
-            </de.hdodenhof.circleimageview.CircleImageView>
-            <TextView
-                android:id="@+id/username_chat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:layout_marginLeft="26dp"
-                android:textColor="@android:color/white"
-                android:text="Fin"
-                android:textStyle="bold" />
+        android:layout_height="90dp"
+        android:layout_above="@+id/optionsListView"
+        android:background="#111E77"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:text="@string/please_choose_a_subject_to_talk_about"
+        android:gravity="center"/>
 
-        </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_chat"
+    <ListView
+        android:id="@+id/optionsListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/barlayout_message_chat"
-        android:layout_above="@+id/relative_layout_bottom">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <RelativeLayout
-        android:id="@+id/relative_layout_bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="6dp"
+        android:layout_height="570dp"
         android:layout_alignParentBottom="true"
-        android:background="#FFF" >
-        <ImageView
-            android:id="@+id/send_image_button"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/send_icon">
-        </ImageView>
-        <EditText
-            android:id="@+id/text_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:hint="@string/write_your_message_here"
-            android:layout_toStartOf="@+id/send_image_button"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp">
-        </EditText>
-    </RelativeLayout>
-
-
-
+        />
 </RelativeLayout>

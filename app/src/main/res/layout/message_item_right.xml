@@ -17,7 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:textSize="18sp"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:background="#111E77"
+            android:textColor="@color/white">
         </TextView>
     </RelativeLayout>
 
