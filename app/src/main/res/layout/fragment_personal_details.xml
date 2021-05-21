@@ -74,10 +74,10 @@
                     android:layout_width="152dp"
                     android:layout_height="44dp"
                     android:layout_marginStart="30dp"
+                    android:layout_marginTop="45dp"
                     android:layout_marginEnd="243dp"
                     android:layout_marginBottom="27dp"
-                    android:layout_marginTop="45dp"
-                    />
+                    android:textColor="#111e77"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -153,7 +153,7 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:layout_marginBottom="30dp"
-                android:text="1-can't save             5- no problem"
+                android:text="1-can't save              5- no problem"
                 android:textColor="#111e77"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -187,6 +187,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="30dp"
                 android:max="5"
+                android:min="1"
                 android:progress="1"
                 android:scaleX="2"
                 android:scaleY="2" />
@@ -220,6 +221,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="30dp"
                 android:max="5"
+                android:min="1"
                 android:progress="1"
                 android:scaleX="2"
                 android:scaleY="2" />
@@ -253,6 +255,7 @@
                 android:layout_marginBottom="30dp"
                 android:max="5"
                 android:progress="1"
+                android:min="1"
                 android:scaleX="2"
                 android:scaleY="2"  />
             <TextView
@@ -284,6 +287,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="30dp"
                 android:max="5"
+                android:min="1"
                 android:progress="1"
                 android:scaleX="2"
                 android:scaleY="2"  />
@@ -317,6 +321,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="30dp"
                 android:max="5"
+                android:min="1"
                 android:progress="1"
                 android:scaleX="2"
                 android:scaleY="2"  />
