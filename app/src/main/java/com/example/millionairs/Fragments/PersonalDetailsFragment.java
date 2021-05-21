@@ -59,8 +59,6 @@ public class PersonalDetailsFragment extends Fragment {
         myAdapter.setAdepter(myAdapter);
 
 */
-
-
         seek_bar = view.findViewById(R.id.SeekBarID);
         seek_bar1 = view.findViewById(R.id.SeekBarID1);
         seek_bar2 = view.findViewById(R.id.SeekBarID2);
@@ -128,7 +126,7 @@ public class PersonalDetailsFragment extends Fragment {
         seek_bar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onProgressChanged(SeekBar seekBar3, int progress, boolean fromUser) {
 
                 sb3.setText("You Rated " + String.valueOf(progress));
             }
@@ -146,7 +144,7 @@ public class PersonalDetailsFragment extends Fragment {
         seek_bar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onProgressChanged(SeekBar seekBar4, int progress, boolean fromUser) {
 
                 sb4.setText("You Rated " + String.valueOf(progress));
             }
