@@ -24,8 +24,8 @@ public class TipBotActivity extends AppCompatActivity {
     ArrayList<Chat> mChatList = new ArrayList();
     RecyclerView recyclerViewChat;
     int count = 0;
-    String[] insurances_convo = {"Are you familiar with all of your insurances?",
-            "Is there an insurance that you own purchased more than once?",
+    String[] insurances_convo = {"Are you familiar with all the insurances you have?",
+            "Is there an insurance you own that purchased more than once?",
             "Do you know what you get from your insurances?",
             "Are you interested in all of your insurances?"
     };
@@ -38,7 +38,7 @@ public class TipBotActivity extends AppCompatActivity {
     String[] communication_convo = {"Did your service providers give you the cheapest offers?",
             "Is the package you currently use the best one for you, or can you change your package? \n " +
                     "For example, can you change to a package that offers less data that will still be enough for your needs?",
-            "If you pay for multiple devices, can you get a discount or special offers?",
+            "If you pay for multiple devices, can you get a group discount or special offers?",
             "Do you need to have cable TV at home?",
             "Do you know what are the limits of resources in your living area?"
     };
@@ -59,7 +59,7 @@ public class TipBotActivity extends AppCompatActivity {
                     "https://www.gov.il/he/departments/israel_tax_authority"
     };
     String[] pension_convo = {"Did your employer open a pension program for you?",
-            "Does your current pension program have the best terms?",
+            "Did you try to negotiate the terms of your pension program?",
             "Do you know what you get from your insurances?",
             "Are all of your pension programs being handled in the same insurance company?"
     };
@@ -72,7 +72,7 @@ public class TipBotActivity extends AppCompatActivity {
     String[] commissions_convo = {"Have you tried to negotiate the commissions terms with your bank?",
             "Do you know if there is a bank that can offer better terms for you?",
             "Do you pay commissions for your credit card(s)? If so, can you lower them?",
-            "Do you need all of the credit cards you have?"
+            "Do you need all the credit cards you have?"
     };
     String[] commissions_responses = {"Try to negotiate with them about it. It can save you a lot of money!",
             "Great job! You're being very responsible :)",
