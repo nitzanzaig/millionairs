@@ -42,7 +42,6 @@ public class PersonalDetailsFragment extends Fragment {
 
         View view;
         view=inflater.inflate(R.layout.fragment_personal_details, container, false);
-
         Spinner dropdown = view.findViewById(R.id.spinner1);
         String[] items = new String[]{"Female", "Male","Other"};
         ArrayAdapter<String> adapter = new ArrayAdapter(view.getContext(),

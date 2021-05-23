@@ -23,11 +23,10 @@
         app:layout_constraintVertical_bias="0.127" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#0FEFDC"
-        android:onClick="move_to"
         android:text="Log in"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,10 +37,9 @@
         app:layout_constraintVertical_bias="0.677" />
 
     <Button
-        android:id="@+id/submitButton"
+        android:id="@+id/submitButtonLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="go_signup"
         android:text="sign UP"
         android:textColor="@color/black"
         app:backgroundTint="#0FEFDC"
@@ -53,13 +51,13 @@
         app:layout_constraintVertical_bias="0.781" />
 
     <EditText
-        android:id="@+id/emailEditTextSignUp"
+        android:id="@+id/emailEditTextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
         android:ems="10"
         android:hint="Enter Email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:textColor="#0FEFDC"
         android:textColorHint="#0FEFDC"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,14 +68,14 @@
         app:layout_constraintVertical_bias="0.211" />
 
     <EditText
-        android:id="@+id/passwordEditTextSignup"
+        android:id="@+id/passwordEditTextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Enter password"
         android:inputType="textPassword"
         android:textColorHint="#0FEFDC"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
