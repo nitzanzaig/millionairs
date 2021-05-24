@@ -48,18 +48,23 @@ public class MainActivity extends AppCompatActivity {
         public final boolean onNavigationItemSelected(@NotNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.nav_personal_details:
+                    setTitle("Personal details");
                     moveToFragment(new PersonalDetailsFragment());
                     break;
                 case R.id.nav_bot:
+                    setTitle("Bot");
                     moveToFragment(new BotFragment());
                     break;
                 case R.id.nav_expenses:
+                    setTitle("Expenses");
                     moveToFragment(new ExpensesFragment());
                     break;
                 case R.id.nav_income:
+                    setTitle("Income");
                     moveToFragment(new IncomeFragment());
                     break;
                 case R.id.nav_budget:
+                    setTitle("Budget");
                     moveToFragment(new BudgetFragment());
                     break;
             }
@@ -80,9 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        setTitle("Budget");
         moveToFragment(new BudgetFragment());
-
-
     }
 
     @Override
