@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private Toolbar toolbar;
     private TextView toolbar_title;
+    private ImageView logoutImageView;
 
     private ActivityMainBinding binding;
     Fragment selectedFragment = null;
@@ -86,19 +88,16 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.home_toolbar);
         toolbar_title = findViewById(R.id.toolbar_title);
 
-        toolbar.inflateMenu(R.menu.menu);
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+        logoutImageView = findViewById(R.id.logoutImageView);
+        logoutImageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == R.id.logout) {
-                    if (currentUser != null && firebaseAuth != null) {
-                        firebaseAuth.signOut();
+            public void onClick(View v) {
+                if (currentUser != null && firebaseAuth != null) {
+                    firebaseAuth.signOut();
 
-                        startActivity(new Intent(MainActivity.this,
-                                logActivity.class));
-                    }
+                    startActivity(new Intent(MainActivity.this,
+                            logActivity.class));
                 }
-                return true;
             }
         });
 

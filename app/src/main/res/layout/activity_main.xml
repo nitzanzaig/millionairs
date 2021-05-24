@@ -21,7 +21,15 @@
             android:layout_gravity="center"
             android:textColor="#0FEFDC"
             android:textSize="40dp" />
+
+        <ImageView
+            android:id="@+id/logoutImageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            app:srcCompat="@drawable/off" />
     </Toolbar>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_container"
