@@ -1,18 +1,34 @@
 package com.example.millionairs;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.TestOnly;
+
+import javax.annotation.Nullable;
 
 public class logActivity extends AppCompatActivity {
 
@@ -41,27 +57,45 @@ public class logActivity extends AppCompatActivity {
                 passwordEditText.getText().toString().trim()));
     }
 
-    private void loginEmailPasswordUser(String email, String password){
-        if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
-            firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                assert user != null;
-                final String currentUserId = user.getUid();
-                collectionReference.whereEqualTo("userId", currentUserId).addSnapshotListener((value, e) -> {
-                    if (e != null){
-                        Toast.makeText(logActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                    assert value != null;
-                    if (!value.isEmpty()){
-                        startActivity(new Intent(logActivity.this, MainActivity.class));
-                    }
-                });
-            }).addOnFailureListener(e -> {
-
+    private void loginEmailPasswordUser(String email, String password) {
+        if (!TextUtils.isEmpty(email)
+                && !TextUtils.isEmpty(password)) {
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+                            collectionReference
+                                    .whereEqualTo("email", email).whereEqualTo("password",  password)
+                                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots,
+                                                            @Nullable FirebaseFirestoreException e) {
+                                            if (e == null) {
+                                                assert queryDocumentSnapshots != null;
+                                                if (!queryDocumentSnapshots.isEmpty()) {
+                                                    for (QueryDocumentSnapshot snapshot : queryDocumentSnapshots) {
+                                                        startActivity(new Intent(logActivity.this,
+                                                                MainActivity.class));
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(logActivity.this,
+                            "Login failed. Please try again ",
+                            Toast.LENGTH_LONG)
+                            .show();
+                }
             });
-        }
-        else{
-            Toast.makeText(logActivity.this, "Please Enter email and password", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(logActivity.this,
+                    "Please enter email and password",
+                    Toast.LENGTH_LONG)
+                    .show();
         }
     }
 
