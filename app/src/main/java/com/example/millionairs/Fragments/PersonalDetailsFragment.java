@@ -1,21 +1,34 @@
 package com.example.millionairs.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.millionairs.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import androidx.fragment.app.Fragment;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 public class PersonalDetailsFragment extends Fragment {
 
@@ -35,6 +48,17 @@ public class PersonalDetailsFragment extends Fragment {
     private SeekBar seek_bar4;
     private TextView sb4;
 
+    private EditText ageEditText;
+    private EditText houseHoldEditText;
+
+    FirebaseAuth firebaseAuth;
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseUser currentUser;
+    private final CollectionReference collectionReference = db.collection("users");
+    String select = "";
+    int value;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,17 +66,36 @@ public class PersonalDetailsFragment extends Fragment {
 
         View view;
         view=inflater.inflate(R.layout.fragment_personal_details, container, false);
-        Spinner dropdown = view.findViewById(R.id.spinner1);
-        String[] items = new String[]{"Female", "Male","Other"};
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
+        assert currentUser != null;
+        DocumentReference ref = collectionReference.document(currentUser.getUid());
+        Log.d("Index", currentUser.getProviderId());
+
+        Spinner dropdown = view.findViewById(R.id.genderSpinner);
+        ArrayList<String> items = new ArrayList<>();
+        items.add("Female");
+        items.add("Male");
+        items.add("Other");
+        int location_gender = items.indexOf(getSelection(ref, "gender"));
+        Log.d("Index", String.valueOf(location_gender));
+        dropdown.setSelection(location_gender);
         ArrayAdapter<String> adapter = new ArrayAdapter(view.getContext(),
                 android.R.layout.simple_spinner_dropdown_item,items);
         dropdown.setAdapter(adapter);
 
-        Spinner dropdown1 = view.findViewById(R.id.spinner2);
-        String[] items1 = new String[]{"North Israel", "Center Israel","South Israel"};
+        Spinner dropdown1 = view.findViewById(R.id.livingAreaSpinner);
+        ArrayList<String> items1 = new ArrayList<>();
+        items1.add("North Israel");
+        items1.add("Center Israel");
+        items1.add("South Israel");
+        int location_area = items.indexOf(getSelection(ref, "living_area"));
+        dropdown1.setSelection(location_area);
         ArrayAdapter<String> adapter1 = new ArrayAdapter(view.getContext(),
                 android.R.layout.simple_spinner_dropdown_item,items1);
         dropdown1.setAdapter(adapter1);
+
 
 
         seek_bar = view.findViewById(R.id.SeekBarID);
@@ -155,10 +198,55 @@ public class PersonalDetailsFragment extends Fragment {
 
             }
         });
+
+        ageEditText = view.findViewById(R.id.ageEditTextPersonal);
+        houseHoldEditText = view.findViewById(R.id.householdEditTextPersonal);
+
+        ageEditText.setText(String.valueOf(getValue(ref, "age")));
+        houseHoldEditText.setText(String.valueOf(getValue(ref, "household_size")));
+
         return view;
 
 
 
+    }
+
+    private String getSelection(DocumentReference ref, String field){
+        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()){
+                    select = documentSnapshot.getString(field);
+                }else {
+                    select = "";
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Log.d("Get Info", e.getMessage());
+            }
+        });
+        return select;
+    }
+
+    private int getValue(DocumentReference ref, String field){
+        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()){
+                    value = (int) documentSnapshot.get(field);
+                }else {
+                    value = 0;
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Log.d("Get Info", e.getMessage());
+            }
+        });
+        return value;
     }
 
 }

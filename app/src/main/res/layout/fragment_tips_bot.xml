@@ -7,21 +7,29 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.TipsBotFragment">
 
-    <TextView
-        android:id="@+id/header"
+    <Toolbar
+        android:id="@+id/home_toolbar"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:layout_above="@+id/optionsListView"
         android:background="#111E77"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:text="@string/please_choose_a_subject_to_talk_about"
-        android:gravity="center"/>
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="#0FEFDC"
+            android:textSize="40sp"
+            android:text="@string/possible_subjects"
+            />
+    </Toolbar>
 
     <ListView
         android:id="@+id/optionsListView"
         android:layout_width="match_parent"
-        android:layout_height="570dp"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_height="643dp"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

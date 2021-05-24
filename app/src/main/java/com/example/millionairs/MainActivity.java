@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.example.millionairs.Fragments.BotFragment;
 import com.example.millionairs.Fragments.BudgetFragment;
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private StorageReference storageReference;
+    private Toolbar toolbar;
+    private TextView toolbar_title;
 
     private ActivityMainBinding binding;
     Fragment selectedFragment = null;
@@ -48,23 +51,23 @@ public class MainActivity extends AppCompatActivity {
         public final boolean onNavigationItemSelected(@NotNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.nav_personal_details:
-                    setTitle("Personal details");
+                    toolbar_title.setText(R.string.personal_details);
                     moveToFragment(new PersonalDetailsFragment());
                     break;
                 case R.id.nav_bot:
-                    setTitle("Bot");
+                    toolbar_title.setText(R.string.bot);
                     moveToFragment(new BotFragment());
                     break;
                 case R.id.nav_expenses:
-                    setTitle("Expenses");
+                    toolbar_title.setText(R.string.expenses);
                     moveToFragment(new ExpensesFragment());
                     break;
                 case R.id.nav_income:
-                    setTitle("Income");
+                    toolbar_title.setText(R.string.income);
                     moveToFragment(new IncomeFragment());
                     break;
                 case R.id.nav_budget:
-                    setTitle("Budget");
+                    toolbar_title.setText(R.string.budget);
                     moveToFragment(new BudgetFragment());
                     break;
             }
@@ -80,32 +83,32 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        toolbar = findViewById(R.id.home_toolbar);
+        toolbar_title = findViewById(R.id.toolbar_title);
+
+        toolbar.inflateMenu(R.menu.menu);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (item.getItemId() == R.id.logout) {
+                    if (currentUser != null && firebaseAuth != null) {
+                        firebaseAuth.signOut();
+
+                        startActivity(new Intent(MainActivity.this,
+                                logActivity.class));
+                    }
+                }
+                return true;
+            }
+        });
+
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-        setTitle("Budget");
+        toolbar_title.setText("Budget");
         moveToFragment(new BudgetFragment());
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.logout) {
-            if (currentUser != null && firebaseAuth != null) {
-                firebaseAuth.signOut();
-
-                startActivity(new Intent(MainActivity.this,
-                        logActivity.class));
-            }
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     public void moveToFragment(Fragment fragment){

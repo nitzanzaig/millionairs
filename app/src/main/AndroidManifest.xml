@@ -12,16 +12,14 @@
         <activity android:name=".TipBotActivity" />
         <activity
             android:name=".logActivity"
-            android:label="millionairs"
-            android:theme="@style/Theme.Design.NoActionBar">
+            android:label="millionairs" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignupMainActivity"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+        <activity android:name=".SignupMainActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

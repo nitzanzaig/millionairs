@@ -8,6 +8,12 @@
     <string name="write_your_message_here">Write your message here</string>
     <string name="please_choose_a_subject_to_talk_about">Please choose a subject to talk about</string>
     <string name="logout">Logout</string>
+    <string name="budget">Budget</string>
+    <string name="income">Income</string>
+    <string name="expenses">Expenses</string>
+    <string name="bot">Bot</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="possible_subjects">Possible Subjects</string>
     <string-array name="Gender">
         <item>Female</item>
         <item>Male</item>
