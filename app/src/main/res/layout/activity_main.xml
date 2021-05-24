@@ -25,9 +25,9 @@
         <ImageView
             android:id="@+id/logoutImageView"
             android:layout_width="60dp"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_gravity="right"
-            app:srcCompat="@drawable/offs" />
+            app:srcCompat="@drawable/off" />
     </Toolbar>
 
 
