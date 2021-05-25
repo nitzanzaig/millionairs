@@ -10,9 +10,9 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="19dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="24dp"
         android:hint="Transportaion"
         android:inputType="number"
         android:textColor="#C3000000"
@@ -26,9 +26,9 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
+        android:layout_marginStart="15dp"
         android:layout_marginEnd="58dp"
-        android:layout_marginStart="51dp"
+        android:layout_marginBottom="24dp"
         android:hint="Home"
         android:inputType="number"
         android:textColor="#C3000000"
@@ -73,9 +73,9 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="279dp"
+        android:layout_marginStart="33dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginBottom="279dp"
         android:hint="Health"
         android:inputType="number"
         android:textColor="#C3000000"
@@ -86,12 +86,64 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_image103" />
 
     <EditText
+        android:id="@+id/textView40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="283dp"
+        android:layout_marginBottom="3dp"
+        android:hint="Shopping"
+        android:inputType="number"
+        android:textColor="#C3000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/profile_image107"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image116" />
+
+    <EditText
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="137dp"
+
+        android:hint="Leisure"
+        android:inputType="number"
+        android:textColor="#C3000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView42"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image142" />
+
+    <EditText
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="137dp"
+        android:hint="Saving &amp; Investment "
+        android:inputType="number"
+        android:textColor="#C3000000"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView41"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image142"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
         android:id="@+id/textView36"
-        android:layout_width="82dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="19dp"
         android:gravity="center"
-        android:hint="Leisure"
+        android:hint="Loan &amp; CC Fees "
+        android:textSize="15dp"
         android:inputType="number"
         android:textColor="#C3000000"
         android:textStyle="bold"
@@ -100,14 +152,15 @@
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/profile_image105" />
 
-    <TextView
+    <EditText
         android:id="@+id/textView37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="111dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginStart="159dp"
-        android:text="Other expense"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="264dp"
+        android:layout_marginBottom="1dp"
+        android:hint="Other expense"
         android:textColor="#C3000000"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -142,6 +195,33 @@
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image142"
+        android:layout_width="119dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/balling1"
+        app:civ_border_color="#BF540A80"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView41"
+        app:layout_constraintEnd_toStartOf="@+id/profile_image143"
+        app:layout_constraintStart_toEndOf="@+id/profile_image116"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image143"
+        android:layout_width="119dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="25dp"
+        android:src="@drawable/saving"
+        app:civ_border_color="#F3D021"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView42"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/profile_image142"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image103"
         android:layout_width="119dp"
         android:layout_height="84dp"
@@ -153,6 +233,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/profile_image102"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image116"
+        android:layout_width="119dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="266dp"
+        android:src="@drawable/shopping"
+        app:civ_border_color="#8183EF"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image104"
@@ -172,8 +267,8 @@
         android:layout_width="119dp"
         android:layout_height="84dp"
         android:layout_marginTop="175dp"
-        android:src="@drawable/balling1"
-        app:civ_border_color="#D57D1AB8"
+        android:src="@drawable/crdit"
+        app:civ_border_color="#5BD39E"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/textView36"
         app:layout_constraintEnd_toStartOf="@+id/profile_image106"
@@ -184,8 +279,8 @@
         android:id="@+id/profile_image106"
         android:layout_width="119dp"
         android:layout_height="84dp"
+        android:layout_marginTop="125dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginTop="175dp"
         android:src="@drawable/house1"
         app:civ_border_color="#BD2A2A"
         app:civ_border_width="2dp"
@@ -198,15 +293,16 @@
         android:id="@+id/profile_image107"
         android:layout_width="119dp"
         android:layout_height="84dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginStart="146dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="267dp"
         android:src="@drawable/pl"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/textView37"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
