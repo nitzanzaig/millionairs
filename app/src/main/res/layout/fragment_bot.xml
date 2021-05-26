@@ -38,6 +38,8 @@
         android:gravity="center"
         android:text="Welcome to our chatbot."
         android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#111e77"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,13 +48,16 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="365dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="23dp"
+        android:gravity="center"
+        android:textColor="#111e77"
         android:text="If you want to ask our bot for information, press on the Info button. If you want our bot to help you with different topics, press on the Tips button."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"
         app:layout_constraintVertical_bias="0.0" />
