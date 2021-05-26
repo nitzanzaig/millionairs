@@ -5,7 +5,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -26,9 +28,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 
 public class PersonalDetailsFragment extends Fragment {
 
@@ -57,6 +63,8 @@ public class PersonalDetailsFragment extends Fragment {
     private final CollectionReference collectionReference = db.collection("users");
     String select = "";
     int value;
+    private Button submitButton;
+    String gender, livingArea;
 
 
     @Override
@@ -70,33 +78,66 @@ public class PersonalDetailsFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
         assert currentUser != null;
-        DocumentReference ref = collectionReference.document(currentUser.getUid());
-        Log.d("Index", currentUser.getProviderId());
+        DocumentReference ref = collectionReference.document(Objects.requireNonNull(currentUser.getEmail()));
+
+        ageEditText = view.findViewById(R.id.ageEditTextPersonal);
+        houseHoldEditText = view.findViewById(R.id.householdEditTextPersonal);
+
+        Log.d("email", currentUser.getEmail());
 
         Spinner dropdown = view.findViewById(R.id.genderSpinner);
         ArrayList<String> items = new ArrayList<>();
         items.add("Female");
         items.add("Male");
         items.add("Other");
-        int location_gender = items.indexOf(getSelection(ref, "gender"));
-        Log.d("Index", String.valueOf(location_gender));
-        dropdown.setSelection(location_gender);
         ArrayAdapter<String> adapter = new ArrayAdapter(view.getContext(),
                 android.R.layout.simple_spinner_dropdown_item,items);
         dropdown.setAdapter(adapter);
+
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                gender = parent.getItemAtPosition(pos).toString();
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+                gender = (String) parent.getSelectedItem();
+            }
+        });
 
         Spinner dropdown1 = view.findViewById(R.id.livingAreaSpinner);
         ArrayList<String> items1 = new ArrayList<>();
         items1.add("North Israel");
         items1.add("Center Israel");
         items1.add("South Israel");
-        int location_area = items.indexOf(getSelection(ref, "living_area"));
-        dropdown1.setSelection(location_area);
         ArrayAdapter<String> adapter1 = new ArrayAdapter(view.getContext(),
                 android.R.layout.simple_spinner_dropdown_item,items1);
         dropdown1.setAdapter(adapter1);
+        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                if (documentSnapshot.exists()){
+                    int location_gender = items.indexOf(documentSnapshot.getString("gender"));
+                    dropdown.setSelection(location_gender);
+                    int location_livingArea = items.indexOf(documentSnapshot.getString("living_area"));
+                    dropdown1.setSelection(location_livingArea);
+                    ageEditText.setText(documentSnapshot.getString("age"));
+                    houseHoldEditText.setText(documentSnapshot.getString("household_size"));
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Log.d("Get Info", e.getMessage());
+            }
+        });
 
-
+        dropdown1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                livingArea = parent.getItemAtPosition(pos).toString();
+            }
+            public void onNothingSelected(AdapterView<?> parent) {
+                livingArea = (String) parent.getSelectedItem();
+            }
+        });
 
         seek_bar = view.findViewById(R.id.SeekBarID);
         seek_bar1 = view.findViewById(R.id.SeekBarID1);
@@ -199,54 +240,28 @@ public class PersonalDetailsFragment extends Fragment {
             }
         });
 
-        ageEditText = view.findViewById(R.id.ageEditTextPersonal);
-        houseHoldEditText = view.findViewById(R.id.householdEditTextPersonal);
+        submitButton = view.findViewById(R.id.submitButton);
 
-        ageEditText.setText(String.valueOf(getValue(ref, "age")));
-        houseHoldEditText.setText(String.valueOf(getValue(ref, "household_size")));
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Object> userObj = new HashMap<>();
+                userObj.put("gender", gender);
+                userObj.put("age", ageEditText.getText().toString());
+                userObj.put("household_size", houseHoldEditText.getText().toString());
+                userObj.put("living_area", livingArea);
+                ref.update(userObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(view.getContext(), "Details were updates successfully", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
 
         return view;
 
 
 
     }
-
-    private String getSelection(DocumentReference ref, String field){
-        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if (documentSnapshot.exists()){
-                    select = documentSnapshot.getString(field);
-                }else {
-                    select = "";
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull @NotNull Exception e) {
-                Log.d("Get Info", e.getMessage());
-            }
-        });
-        return select;
-    }
-
-    private int getValue(DocumentReference ref, String field){
-        ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                if (documentSnapshot.exists()){
-                    value = (int) documentSnapshot.get(field);
-                }else {
-                    value = 0;
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull @NotNull Exception e) {
-                Log.d("Get Info", e.getMessage());
-            }
-        });
-        return value;
-    }
-
 }

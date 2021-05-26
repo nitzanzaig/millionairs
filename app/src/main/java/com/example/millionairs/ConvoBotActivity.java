@@ -13,7 +13,15 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.millionairs.Adapter.ChatAdapter;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.ml.modeldownloader.CustomModel;
+import com.google.firebase.ml.modeldownloader.CustomModelDownloadConditions;
+import com.google.firebase.ml.modeldownloader.DownloadType;
+import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader;
 
+import org.tensorflow.lite.Interpreter;
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class ConvoBotActivity extends AppCompatActivity {
@@ -28,6 +36,25 @@ public class ConvoBotActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convo_bot);
+        CustomModelDownloadConditions conditions = new CustomModelDownloadConditions.Builder()
+                .requireWifi()  // Also possible: .requireCharging() and .requireDeviceIdle()
+                .build();
+        FirebaseModelDownloader.getInstance()
+                .getModel("chatbot", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND, conditions)
+                .addOnSuccessListener(new OnSuccessListener<CustomModel>() {
+                    @Override
+                    public void onSuccess(CustomModel model) {
+                        // Download complete. Depending on your app, you could enable the ML
+                        // feature, or switch from the local model to the remote model, etc.
+
+                        // The CustomModel object contains the local path of the model file,
+                        // which you can use to instantiate a TensorFlow Lite interpreter.
+                        File modelFile = model.getFile();
+                        if (modelFile != null) {
+                            Interpreter interpreter = new Interpreter(modelFile);
+                        }
+                    }
+                });
         sendImageView = findViewById(R.id.send_image_button);
         messageEditText = findViewById(R.id.text_message);
         recyclerViewChat = findViewById(R.id.recycler_view_chat);
