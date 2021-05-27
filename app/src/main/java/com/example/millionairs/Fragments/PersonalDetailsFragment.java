@@ -16,8 +16,10 @@ import android.widget.Toast;
 
 
 import com.example.millionairs.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -62,12 +64,19 @@ public class PersonalDetailsFragment extends Fragment {
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseUser currentUser;
     private final CollectionReference collectionReference = db.collection("users");
-    String select = "";
-    int value;
+    private final CollectionReference preferences = db.collection("Preferences Questionnaire");
     private Button submitButton;
     String gender, livingArea;
 
-    ArrayList<String> values = new ArrayList<>();
+    ArrayList<String> values = new ArrayList<String>(5){
+        {
+            add("");
+            add("");
+            add("");
+            add("");
+            add("");
+        }
+    };;
 
 
     @Override
@@ -158,6 +167,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 sb.setText("You Rated " + String.valueOf(progress));
+                values.set(0, String.valueOf(progress));
             }
 
             @Override
@@ -176,7 +186,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 sb1.setText("You Rated " + String.valueOf(progress));
-                values.add(String.valueOf(progress));
+                values.set(1, String.valueOf(progress));
             }
 
             @Override
@@ -195,7 +205,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 sb2.setText("You Rated " + String.valueOf(progress));
-                values.add(String.valueOf(progress));
+                values.set(2, String.valueOf(progress));
             }
 
             @Override
@@ -214,7 +224,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar3, int progress, boolean fromUser) {
 
                 sb3.setText("You Rated " + String.valueOf(progress));
-                values.add(String.valueOf(progress));
+                values.set(3, String.valueOf(progress));
             }
 
             @Override
@@ -233,7 +243,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar4, int progress, boolean fromUser) {
 
                 sb4.setText("You Rated " + String.valueOf(progress));
-                values.add(String.valueOf(progress));
+                values.set(4, String.valueOf(progress));
             }
 
             @Override
@@ -263,14 +273,32 @@ public class PersonalDetailsFragment extends Fragment {
                         Toast.makeText(view.getContext(), "Details were updates successfully", Toast.LENGTH_SHORT).show();
                     }
                 });
+                Map<String, Object> personalObj = new HashMap<>();
+                personalObj.put("email", currentUser.getEmail());
+                personalObj.put("home_bills", values.get(0));
+                personalObj.put("leisure", values.get(1));
+                personalObj.put("transportation", values.get(2));
+                personalObj.put("housing", values.get(3));
+                personalObj.put("loans_and_credit_cards", values.get(4));
+
+                DocumentReference documentReference = preferences.document(currentUser.getEmail());
+                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                documentReference.update(personalObj);
+                            } else {
+                                documentReference.set(personalObj);
+                            }
+                        } else {
+                            Log.d("Personal Details", "Failed with: ", task.getException());
+                        }
+                    }
+                });
             }
         });
-
-
-
         return view;
-
-
-
     }
 }
