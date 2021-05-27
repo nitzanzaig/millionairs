@@ -25,6 +25,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -65,6 +66,8 @@ public class PersonalDetailsFragment extends Fragment {
     int value;
     private Button submitButton;
     String gender, livingArea;
+
+    ArrayList<String> values = new ArrayList<>();
 
 
     @Override
@@ -173,6 +176,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 sb1.setText("You Rated " + String.valueOf(progress));
+                values.add(String.valueOf(progress));
             }
 
             @Override
@@ -191,6 +195,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 sb2.setText("You Rated " + String.valueOf(progress));
+                values.add(String.valueOf(progress));
             }
 
             @Override
@@ -209,6 +214,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar3, int progress, boolean fromUser) {
 
                 sb3.setText("You Rated " + String.valueOf(progress));
+                values.add(String.valueOf(progress));
             }
 
             @Override
@@ -227,6 +233,7 @@ public class PersonalDetailsFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar4, int progress, boolean fromUser) {
 
                 sb4.setText("You Rated " + String.valueOf(progress));
+                values.add(String.valueOf(progress));
             }
 
             @Override
@@ -258,6 +265,8 @@ public class PersonalDetailsFragment extends Fragment {
                 });
             }
         });
+
+
 
         return view;
 
