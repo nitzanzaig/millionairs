@@ -57,13 +57,15 @@
 
                 <ProgressBar
                     android:id="@+id/progressBarHome"
-                    style="?android:attr/progressBarStyle"
                     android:layout_width="169dp"
-                    android:layout_height="104dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_height="145dp"
                     android:layout_gravity="left"
+                    android:layout_marginStart="20dp"
+                    android:indeterminateOnly="false"
                     android:indeterminateTint="#BD2A2A"
-                    android:progressBackgroundTint="#0FEFDC" />
+                    android:progress="70"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle" />
 
             </LinearLayout>
             <LinearLayout
@@ -86,18 +88,21 @@
                     style="?android:attr/progressBarStyle"
                     android:layout_gravity="right"
                     android:layout_width="169dp"
-                    android:layout_height="104dp"
+                    android:layout_height="145dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="30dp"
-                    android:indeterminateTint="#E89E27"
-                    android:progressBackgroundTint="#0FEFDC" />
+                    android:indeterminateOnly="false"
+                    android:indeterminateTint="#BD2A2A"
+                    android:progress="70"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle2" />
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="500dp">
+            android:layout_width="match_parent"
+            android:layout_height="182dp">
 
             <LinearLayout
                 android:layout_width="180dp"
@@ -108,9 +113,9 @@
                     android:id="@+id/textViewHealth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Health:"
-                    android:layout_marginStart="60dp"
                     android:layout_gravity="left"
+                    android:layout_marginStart="60dp"
+                    android:text="Health:"
                     android:textColor="#111E77"
                     android:textSize="20sp" />
 
@@ -118,11 +123,56 @@
                     android:id="@+id/progressBarHealth"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="169dp"
-                    android:layout_height="104dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_height="145dp"
                     android:layout_gravity="left"
+                    android:layout_marginStart="20dp"
+                    android:indeterminateOnly="false"
                     android:indeterminateTint="#BFF455D2"
-                    android:progressBackgroundTint="#0FEFDC" />
+                    android:progress="70"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewEducation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="70dp"
+                    android:text="Education:"
+                    android:textColor="#111E77"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarEducation"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="169dp"
+                    android:layout_height="145dp"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:indeterminateOnly="false"
+                    android:indeterminateTint="#90C4E3"
+                    android:progress="30"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle5" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="195dp">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textViewLeisure"
@@ -138,38 +188,21 @@
                     android:id="@+id/progressBarLeisure"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="169dp"
-                    android:layout_height="104dp"
+                    android:layout_height="145dp"
                     android:layout_gravity="left"
                     android:layout_marginStart="20dp"
+                    android:indeterminateOnly="false"
                     android:indeterminateTint="#D57D1AB8"
-                    android:progressBackgroundTint="#0FEFDC" />
+                    android:progress="70"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle4" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textViewEducation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Education:"
-                    android:layout_marginEnd="70dp"
-                    android:layout_gravity="right"
-                    android:textColor="#111E77"
-                    android:textSize="20sp" />
-
-                <ProgressBar
-                    android:id="@+id/progressBarEducation"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_gravity="right"
-                    android:layout_width="169dp"
-                    android:layout_height="104dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="30dp"
-                    android:indeterminateTint="#90C4E3"
-                    android:progressBackgroundTint="#0FEFDC" />
 
                 <TextView
                     android:id="@+id/textViewTransportation"
@@ -185,13 +218,83 @@
                     android:id="@+id/progressBarTransportation"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="169dp"
-                    android:layout_height="104dp"
+                    android:layout_height="145dp"
                     android:layout_gravity="right"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="30dp"
+                    android:indeterminateOnly="false"
                     android:indeterminateTint="#7EB359"
-                    android:progressBackgroundTint="#7EB359" />
+                    android:progress="50"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle6" />
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewLoans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginEnd="40dp"
+                    android:text="Loans and CC Fees:"
+                    android:textColor="#111E77"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarLoans"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="169dp"
+                    android:layout_height="145dp"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:indeterminateOnly="false"
+                    android:indeterminateTint="#28DA8C"
+                    android:progress="50"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewSaving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="40dp"
+                    android:text="Savings and Investments:"
+                    android:textColor="#111E77"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarSaving"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="169dp"
+                    android:layout_height="145dp"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:indeterminateOnly="false"
+                    android:indeterminateTint="#F3D021"
+                    android:progress="50"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle8" />
+            </LinearLayout>
+
 
         </LinearLayout>
         <LinearLayout
@@ -203,20 +306,65 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textViewShopping"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginEnd="40dp"
+                    android:text="Shopping:"
+                    android:textColor="#111E77"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarShopping"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="169dp"
+                    android:layout_height="145dp"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:indeterminateOnly="false"
+                    android:indeterminateTint="#8183EF"
+                    android:progress="50"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle9" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textViewOther"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginEnd="40dp"
+                    android:text="Other Expense:"
+                    android:textColor="#111E77"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarOther"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="169dp"
+                    android:layout_height="141dp"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:indeterminateOnly="false"
+                    android:indeterminateTint="#000000"
+                    android:progress="50"
+                    android:progressBackgroundTint="#0FEFDC"
+                    android:progressDrawable="@drawable/circle10" />
             </LinearLayout>
 
+
         </LinearLayout>
-
     </LinearLayout>
+
+
 </ScrollView>
-
-
-
-
 
