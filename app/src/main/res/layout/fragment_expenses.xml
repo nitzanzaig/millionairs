@@ -5,304 +5,246 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.ExpensesFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="19dp"
-        android:hint="Transportaion"
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/profile_image104"
-        app:layout_constraintEnd_toStartOf="@+id/textView36"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image101" />
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="58dp"
-        android:layout_marginBottom="24dp"
-        android:hint="Home"
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/profile_image103"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView36"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image106" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image101"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_marginTop="125dp"
+                    android:layout_marginStart="25dp"
+                    android:src="@drawable/bus1"
+                    app:civ_border_color="#7EB359"
+                    app:civ_border_width="2dp" />
 
-    <EditText
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="279dp"
-        android:hint="Education"
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView35"
-        app:layout_constraintStart_toEndOf="@+id/textView32"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image102" />
+                <EditText
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:gravity="left"
+                    android:hint="Transportaion"
+                    android:inputType="number"
+                    android:textSize="15dp"
+                    android:textColor="#C3000000"
+                    android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/textView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="279dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginStart="43dp"
-        android:hint="Groceries"
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image104" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image104"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_marginStart="25dp"
+                    android:src="@drawable/groceries1"
+                    app:civ_border_color="#E89E27"
+                    app:civ_border_width="2dp" />
+
+                <EditText
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:hint="Groceries"
+                    android:layout_gravity="left"
+                    android:inputType="number"
+                    android:textColor="#C3000000"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
 
-    <EditText
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="279dp"
-        android:hint="Health"
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image103" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image116"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_marginStart="25dp"
+                    android:src="@drawable/shopping"
+                    app:civ_border_color="#8183EF"
+                    app:civ_border_width="2dp" />
 
-    <EditText
-        android:id="@+id/textView40"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="283dp"
-        android:layout_marginBottom="3dp"
-        android:hint="Shopping"
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/profile_image107"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image116" />
+                <EditText
+                    android:id="@+id/textView330"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Shopping"
+                    android:inputType="number"
+                    android:textColor="#C3000000"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_gravity="left"
+                    android:layout_marginStart="50dp"/>
 
-    <EditText
-        android:id="@+id/textView41"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="137dp"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image107"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="267dp"
+                    android:src="@drawable/pl"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp"/>
 
-        android:hint="Leisure"
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView42"
-        app:layout_constraintStart_toEndOf="@+id/textView40"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image142" />
-
-    <EditText
-        android:id="@+id/textView42"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="137dp"
-        android:hint="Saving &amp; Investment "
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView41"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image142"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <EditText
-        android:id="@+id/textView36"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
-        android:gravity="center"
-        android:hint="Loan &amp; CC Fees "
-        android:textSize="15dp"
-        android:inputType="number"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/profile_image102"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image105" />
-
-    <EditText
-        android:id="@+id/textView37"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="264dp"
-        android:layout_marginBottom="1dp"
-        android:hint="Other expense"
-        android:textColor="#C3000000"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image107" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image101"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="175dp"
-        android:src="@drawable/bus1"
-        app:civ_border_color="#7EB359"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/profile_image105"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image102"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:src="@drawable/education1"
-        app:civ_border_color="#90C4E3"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/profile_image103"
-        app:layout_constraintStart_toEndOf="@+id/profile_image104"
-        app:layout_constraintTop_toBottomOf="@+id/textView36" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image142"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="13dp"
-        android:src="@drawable/balling1"
-        app:civ_border_color="#BF540A80"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView41"
-        app:layout_constraintEnd_toStartOf="@+id/profile_image143"
-        app:layout_constraintStart_toEndOf="@+id/profile_image116"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image143"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="25dp"
-        android:src="@drawable/saving"
-        app:civ_border_color="#F3D021"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView42"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profile_image142"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image103"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginEnd="25dp"
-        android:src="@drawable/mazrek"
-        app:civ_border_color="#BFF455D2"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView35"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profile_image102"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image116"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="266dp"
-        android:src="@drawable/shopping"
-        app:civ_border_color="#8183EF"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView32" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image104"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="25dp"
-        android:src="@drawable/groceries1"
-        app:civ_border_color="#E89E27"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView32"
-        app:layout_constraintEnd_toStartOf="@+id/profile_image102"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image105"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="175dp"
-        android:src="@drawable/crdit"
-        app:civ_border_color="#5BD39E"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView36"
-        app:layout_constraintEnd_toStartOf="@+id/profile_image106"
-        app:layout_constraintStart_toEndOf="@+id/profile_image101"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image106"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="125dp"
-        android:layout_marginEnd="25dp"
-        android:src="@drawable/house1"
-        app:civ_border_color="#BD2A2A"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profile_image105"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image107"
-        android:layout_width="119dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="267dp"
-        android:src="@drawable/pl"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView37"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+                <EditText
+                    android:id="@+id/textView37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:hint="Other expense"
+                    android:textColor="#C3000000"
+                    android:textStyle="bold"
+                    android:textSize="15dp"/>
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image105"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="125dp"
+                    android:src="@drawable/crdit"
+                    app:civ_border_color="#5BD39E"
+                    app:civ_border_width="3dp" />
+
+                <EditText
+                    android:id="@+id/textView36"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:hint="Loan &amp; CC Fees "
+                    android:inputType="number"
+                    android:textColor="#C3000000"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image102"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/education1"
+                    app:civ_border_color="#90C4E3"
+                    app:civ_border_width="2dp" />
+
+                <EditText
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="Education"
+                    android:inputType="number"
+                    android:textColor="#C3000000"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image142"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:src="@drawable/balling1"
+                    app:civ_border_color="#BF540A80"
+                    app:civ_border_width="2dp"
+                    android:layout_gravity="center"/>
+
+                <EditText
+                    android:id="@+id/textView41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="Leisure"
+                    android:inputType="number"
+                    android:textColor="#C3000000"
+                    android:textStyle="bold"
+                    android:textSize="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="135dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image106"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_marginTop="125dp"
+                    android:layout_marginEnd="30dp"
+                    android:src="@drawable/house1"
+                    app:civ_border_color="#BD2A2A"
+                    app:civ_border_width="2dp" />
+
+                <EditText
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="50dp"
+                    android:hint="Home"
+                    android:textSize="15dp"
+                    android:inputType="number"
+                    android:textColor="#C3000000"
+                    android:textStyle="bold" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image103"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_marginEnd="25dp"
+                    android:src="@drawable/mazrek"
+                    app:civ_border_color="#BFF455D2"
+                    app:civ_border_width="2dp"/>
+
+                <EditText
+                    android:id="@+id/textView35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginEnd="25dp"
+                    android:hint="Health"
+                    android:inputType="number"
+                    android:textColor="#C3000000"
+                    android:textStyle="bold"
+                    android:textSize="15dp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image143"
+                    android:layout_width="119dp"
+                    android:layout_height="84dp"
+                    android:layout_marginEnd="25dp"
+                    android:src="@drawable/saving"
+                    app:civ_border_color="#F3D021"
+                    app:civ_border_width="2dp"/>
+
+                <EditText
+                    android:id="@+id/textView42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Saving &amp; Invest. "
+                    android:inputType="number"
+                    android:textColor="#C3000000"
+                    android:textSize="15dp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
