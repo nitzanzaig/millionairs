@@ -38,8 +38,10 @@
         android:id="@+id/recycler_view_chat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/relative_layout_bottom"
         android:layout_below="@id/barlayout_message_chat"
-        android:layout_above="@+id/relative_layout_bottom">
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

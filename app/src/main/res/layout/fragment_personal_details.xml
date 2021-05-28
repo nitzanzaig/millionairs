@@ -141,7 +141,7 @@
                 android:layout_gravity="left"
                 android:gravity="center_horizontal"
                 android:layout_marginBottom="30dp"
-                android:text="rate from 1-5 your abillity to save money in the following categories"
+                android:text="Rate from 1-5 your abillity to save money in the following categories"
                 android:textColor="#111e77"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
@@ -153,7 +153,7 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
                 android:layout_marginBottom="30dp"
-                android:text="1-can't save              5- no problem"
+                android:text="1-Can't Save              5- No Problem"
                 android:textColor="#111e77"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -325,6 +325,15 @@
                 android:progress="1"
                 android:scaleX="2"
                 android:scaleY="2"  />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:text="Submit"
+                android:textColor="#0FEFDC" />
 
 
         </LinearLayout>

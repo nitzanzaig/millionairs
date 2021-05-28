@@ -25,6 +25,9 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -88,8 +91,8 @@ public class SignupMainActivity extends AppCompatActivity {
             if (!TextUtils.isEmpty(emailEditText.getText().toString()) && !TextUtils.isEmpty(passwordEditText.getText().toString())) {
                 String email = emailEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
-                int age = Integer.parseInt(ageEditText.getText().toString());
-                int household = Integer.parseInt(householdEditText.getText().toString());
+                String age = ageEditText.getText().toString();
+                String household = householdEditText.getText().toString();
                 createUserEmailAccount(email, password, gender, age, household, livingArea);
             }else {
                 Toast.makeText(SignupMainActivity.this, "Fields can't be empty", Toast.LENGTH_SHORT).show();
@@ -111,7 +114,7 @@ public class SignupMainActivity extends AppCompatActivity {
         };
     }
 
-    private void createUserEmailAccount(String email, String password, String gender, int age, int household, String livingArea){
+    private void createUserEmailAccount(String email, String password, String gender, String age, String household, String livingArea){
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(gender)
                 && !TextUtils.isEmpty(String.valueOf(age)) && !TextUtils.isEmpty(String.valueOf(household))
                 && !TextUtils.isEmpty(livingArea)){
@@ -125,7 +128,7 @@ public class SignupMainActivity extends AppCompatActivity {
                                 final String currentUserId = currentUser.getUid();
 
                                 //Create a user Map so we can create a user in the User collection
-                                Map<String, Object> userObj = new HashMap<>();
+                                Map<String, String> userObj = new HashMap<>();
                                 userObj.put("userId", currentUserId);
                                 userObj.put("email", email);
                                 userObj.put("password", password);
@@ -134,8 +137,22 @@ public class SignupMainActivity extends AppCompatActivity {
                                 userObj.put("household_size", household);
                                 userObj.put("living_area", livingArea);
 
+                                collectionReference.document(email).set(userObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Intent intent = new Intent(SignupMainActivity.this,
+                                                MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull @NotNull Exception e) {
+                                        Toast.makeText(SignupMainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
                                 //save to our firestore database
-                                collectionReference.add(userObj)
+                                /*collectionReference.add(userObj)
                                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                             @Override
                                             public void onSuccess(DocumentReference documentReference) {
@@ -160,7 +177,7 @@ public class SignupMainActivity extends AppCompatActivity {
                                             public void onFailure(@NonNull Exception e) {
                                                 Toast.makeText(SignupMainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
-                                        });
+                                        });*/
 
 
                             }else {
