@@ -9,25 +9,18 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_marginTop="0dp"
-            android:id="@+id/textView38"
-            style="@style/headline"
-            android:text="Budget"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView1233"
+            android:id="@+id/budgetTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="100dp"
             android:text="Current Budget is 0"
             android:textColor="#111E77"
             android:textSize="35sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView1232"
+            android:id="@+id/remainingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Remaining Amount is 0"
@@ -75,7 +68,6 @@
                     android:layout_marginStart="20dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#BD2A2A"
-                    android:progress="70"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle" />
 
@@ -117,7 +109,6 @@
                     android:layout_marginEnd="30dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#BD2A2A"
-                    android:progress="70"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle2" />
             </LinearLayout>
@@ -163,7 +154,6 @@
                     android:layout_marginStart="20dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#BFF455D2"
-                    android:progress="70"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle3" />
             </LinearLayout>
@@ -251,7 +241,6 @@
                     android:layout_marginStart="20dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#D57D1AB8"
-                    android:progress="70"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle4" />
 
@@ -293,7 +282,6 @@
                     android:layout_marginEnd="30dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#7EB359"
-                    android:progress="50"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle6" />
             </LinearLayout>
@@ -340,7 +328,6 @@
                     android:layout_marginEnd="30dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#28DA8C"
-                    android:progress="50"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle7" />
             </LinearLayout>
@@ -387,7 +374,6 @@
                     android:layout_marginEnd="30dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#F3D021"
-                    android:progress="50"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle8" />
             </LinearLayout>
@@ -437,7 +423,6 @@
                     android:layout_marginEnd="30dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#8183EF"
-                    android:progress="50"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle9" />
             </LinearLayout>
@@ -479,7 +464,6 @@
                     android:layout_marginEnd="30dp"
                     android:indeterminateOnly="false"
                     android:indeterminateTint="#000000"
-                    android:progress="50"
                     android:progressBackgroundTint="#0FEFDC"
                     android:progressDrawable="@drawable/circle10" />
             </LinearLayout>
