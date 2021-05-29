@@ -22,15 +22,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class SignupMainActivity extends AppCompatActivity {
 
@@ -81,7 +78,7 @@ public class SignupMainActivity extends AppCompatActivity {
         });
 
         firebaseAuth = FirebaseAuth.getInstance();
-        Button submitButton = findViewById(R.id.submitButton);
+        Button submitButton = findViewById(R.id.submitButtonExpenses);
         emailEditText = findViewById(R.id.emailEditTextSignUp);
         passwordEditText = findViewById(R.id.passwordEditTextSignup);
         ageEditText = findViewById(R.id.ageEditText);

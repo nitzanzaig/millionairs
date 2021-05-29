@@ -27,7 +27,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -37,7 +36,6 @@ import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LifecycleOwner;
 
 public class PersonalDetailsFragment extends Fragment {
 
@@ -70,11 +68,11 @@ public class PersonalDetailsFragment extends Fragment {
 
     ArrayList<String> values = new ArrayList<String>(5){
         {
-            add("");
-            add("");
-            add("");
-            add("");
-            add("");
+            add("1");
+            add("1");
+            add("1");
+            add("1");
+            add("1");
         }
     };;
 
@@ -257,7 +255,7 @@ public class PersonalDetailsFragment extends Fragment {
             }
         });
 
-        submitButton = view.findViewById(R.id.submitButton);
+        submitButton = view.findViewById(R.id.submitButtonExpenses);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
