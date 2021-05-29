@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.millionairs.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -59,52 +60,102 @@ public class ExpensesFragment extends Fragment {
                 if (!transportationEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Transportation");
                     expsObj.put("amount", Integer.parseInt(transportationEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            transportationEditText.setText("");
+                        }
+                    });
                 }
                 if (!groceriesEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Groceries");
                     expsObj.put("amount", Integer.parseInt(groceriesEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            groceriesEditText.setText("");
+                        }
+                    });
                 }
                 if (!shoppingEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Shopping");
                     expsObj.put("amount", Integer.parseInt(shoppingEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            shoppingEditText.setText("");
+                        }
+                    });
                 }
                 if (!otherEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Other");
                     expsObj.put("amount", Integer.parseInt(otherEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            otherEditText.setText("");
+                        }
+                    });
                 }
                 if (!loansEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Loans");
                     expsObj.put("amount", Integer.parseInt(loansEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            loansEditText.setText("");
+                        }
+                    });
                 }
                 if (!educationEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Education");
                     expsObj.put("amount", Integer.parseInt(educationEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            educationEditText.setText("");
+                        }
+                    });
                 }
                 if (!leisureEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Leisure");
                     expsObj.put("amount", Integer.parseInt(leisureEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            leisureEditText.setText("");
+                        }
+                    });
                 }
                 if (!homeEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Home");
                     expsObj.put("amount", Integer.parseInt(homeEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            homeEditText.setText("");
+                        }
+                    });
                 }
                 if (!healthEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Health");
                     expsObj.put("amount", Integer.parseInt(healthEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            healthEditText.setText("");
+                        }
+                    });
                 }
                 if (!SavingEditText.getText().toString().isEmpty()) {
                     expsObj.put("type", "Savings");
                     expsObj.put("amount", Integer.parseInt(SavingEditText.getText().toString()));
-                    collectionReference.document().set(expsObj);
+                    collectionReference.document().set(expsObj).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            SavingEditText.setText("");
+                        }
+                    });
                 }
             }
         });
