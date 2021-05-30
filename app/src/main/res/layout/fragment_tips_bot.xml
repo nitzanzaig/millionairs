@@ -24,15 +24,73 @@
             android:textColor="#0FEFDC"
             android:textSize="40sp"
             android:text="@string/possible_subjects"
+
             />
     </Toolbar>
 
-    <ListView
-        android:id="@+id/optionsListView"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentBottom="true"/>
+
+    <Button
+        android:id="@+id/InsurancesButton"
+        android:layout_width="155dp"
+        android:layout_height="75dp"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:layout_marginTop="415dp"
+        android:layout_marginStart="220dp"
+        android:text="Insurances"
+
+      />
 
 
+    <Button
+        android:id="@+id/RightsButton"
+        android:layout_width="155dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="165dp"
+        android:text="Rights"
+        android:textSize="13dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/PensionButton"
+        android:layout_width="155dp"
+        android:layout_height="75dp"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="165dp"
+        android:text="Pension" />
+
+    <Button
+        android:id="@+id/CommissionsButton"
+        android:layout_width="155dp"
+        android:layout_height="75dp"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="290dp"
+        android:text="Commissions" />
+
+    <Button
+        android:id="@+id/WorkplacerightsButton"
+        android:layout_width="155dp"
+        android:layout_height="75dp"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="290dp"
+        android:text="Work place rights" />
+
+    <Button
+        android:id="@+id/CommunicationButton"
+        android:layout_width="155dp"
+        android:layout_height="75dp"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="414dp"
+        android:text="Communication"
+ />
 
 </RelativeLayout>

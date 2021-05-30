@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.millionairs.R;
@@ -20,12 +21,77 @@ public class TipsBotFragment extends Fragment {
 
     ArrayList<String> options = new ArrayList<>();
     ArrayAdapter arrayAdapter;
+    Button insurancesButton,communicationButton,rightsButton, pensionButton,commissionsButton,workplaceButton ;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_tips_bot, container, false);
+        insurancesButton = view.findViewById(R.id.InsurancesButton);
+        insurancesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), TipBotActivity.class);
+                intent.putExtra("subject", "Insurances");
+                startActivity(intent);
+            }
+        });
+
+        communicationButton = view.findViewById(R.id.CommunicationButton);
+        communicationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), TipBotActivity.class);
+                intent.putExtra("subject", "Communication");
+                startActivity(intent);
+            }
+        });
+        rightsButton = view.findViewById(R.id.RightsButton);
+        rightsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), TipBotActivity.class);
+                intent.putExtra("subject", "Rights");
+                startActivity(intent);
+            }
+        });
+        pensionButton = view.findViewById(R.id.PensionButton);
+        pensionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), TipBotActivity.class);
+                intent.putExtra("subject", "Pension");
+                startActivity(intent);
+            }
+        });
+        commissionsButton = view.findViewById(R.id.CommissionsButton);
+        commissionsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), TipBotActivity.class);
+                intent.putExtra("subject", "Commissions");
+                startActivity(intent);
+            }
+        });
+        workplaceButton = view.findViewById(R.id.WorkplacerightsButton);
+        workplaceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), TipBotActivity.class);
+                intent.putExtra("subject", "Work place rightss");
+                startActivity(intent);
+            }
+        });
+
+        /*communicationButton = view.findViewById(R.id.CommunicationButton);
         options.add(0, "Insurances");
         options.add(1, "Communication");
         options.add(2, "Rights");
@@ -66,7 +132,7 @@ public class TipsBotFragment extends Fragment {
                         break;
                 }
             }
-        });
+        });*/
         return view;
     }
 }
