@@ -1,7 +1,6 @@
 package com.example.millionairs.Fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +8,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
@@ -29,11 +30,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
-import java.util.Arrays;
 
 public class BudgetFragment extends Fragment {
 
@@ -194,6 +190,7 @@ public class BudgetFragment extends Fragment {
                     shoppingTextView.setText(amounts[8] + "/" + progressBarShopping.getMax());
                     progressBarOther.setProgress(amounts[9]);
                     otherTextView.setText(amounts[9] + "/" + progressBarOther.getMax());
+                    zero.setText(obj);
                 }
             }
         });

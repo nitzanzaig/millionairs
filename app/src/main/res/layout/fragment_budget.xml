@@ -14,9 +14,18 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="280dp"
             android:layout_marginTop="100dp"
-            android:text="Add Budget"
+            android:text="create budget"
             android:textSize="13dp"
             android:textStyle="bold" />
+
+
+        <TextView
+            android:id="zero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="0"
+            android:textSize="30dp"/>
 
         <TextView
             android:id="@+id/budgetTextView"
