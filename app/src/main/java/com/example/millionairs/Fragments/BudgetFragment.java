@@ -29,6 +29,8 @@ import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import java.util.Arrays;
+
 public class BudgetFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -173,7 +175,47 @@ public class BudgetFragment extends Fragment {
             }
         });
 
+        int[][] users = {{1, 2, 3}, {3, 2, 1}, {2, 3, 1}};
+        int[][] budget = {{4, 5}, {5, 6}, {6, 7}};
+        int[] new_user = {2, 4, 2};
+        int[] new_budget_pred = knn_algorithm(new_user, users, budget);
+
+
         // Inflate the layout for this fragment
-        return view;
+        return inflater.inflate(R.layout.fragment_budget, container, false);
+    }
+
+    public int[] knn_algorithm (int[] new_user, int[][] users, int[][] budget) {
+        int[] knn_loc = {0, 0};
+        double[] knn_distance = {0, 0};
+        int k = 2;
+
+        for (int user_loc = 0; user_loc < users.length; user_loc++) {
+            int[] user = users[user_loc];
+
+            // calaculating the distance between the new users to all the others and save the k closest
+            double distance;
+            double sum = 0;
+
+            for (int feature_num = 0; feature_num < user.length; feature_num++) {
+                distance = Math.pow(user[feature_num] - new_user[feature_num], 2);
+                sum += distance;
+            }
+            double final_dist = Math.sqrt(sum);
+
+            if (knn_distance.length < k) {
+                knn_distance[knn_distance.length] = final_dist;
+                knn_loc[knn_distance.length] = user_loc;
+            } else {
+                for (int dist_loc = 0; dist_loc < knn_distance.length; dist_loc++) {
+                    double dist = knn_distance[dist_loc];
+                    if (final_dist < dist) {
+                        System.out.println(final_dist);
+                    }
+                }
+            }
+        }
+
+        return new_user;
     }
 }
