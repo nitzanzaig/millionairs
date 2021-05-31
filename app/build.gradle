@@ -31,7 +31,7 @@ android {
         }
 
         python {
-            buildPython "C:/Users/Nitzan Zaig/AppData/Local/Programs/Python/Python38-32/python.exe"
+            buildPython "../../AppData/Local/Programs/Python/Python38-32/python.exe"
         }
     }
 

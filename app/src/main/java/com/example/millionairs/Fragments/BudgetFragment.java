@@ -47,7 +47,7 @@ public class BudgetFragment extends Fragment {
     private final CollectionReference budget = db.collection("Budget");
     private final CollectionReference expenses = db.collection("Expenses");
     TextView budgetTextView, remainingTextView, homeTextView, groceriesTextView, healthTextView, educationTextView, leisureTextView,
-            transportationTextView, loansTextView, savingsTextView, shoppingTextView, otherTextView;
+            transportationTextView, loansTextView, savingsTextView, shoppingTextView, otherTextView, zero;
 
     Button addBudgetBtn;
 
@@ -93,7 +93,9 @@ public class BudgetFragment extends Fragment {
 
         addBudgetBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view1){
+
                 PyObject obj = pyObj.callAttr("main", 1, 2);
+                zero.setText(obj.toString());
             }
         });
 
@@ -190,7 +192,7 @@ public class BudgetFragment extends Fragment {
                     shoppingTextView.setText(amounts[8] + "/" + progressBarShopping.getMax());
                     progressBarOther.setProgress(amounts[9]);
                     otherTextView.setText(amounts[9] + "/" + progressBarOther.getMax());
-                    zero.setText(obj);
+
                 }
             }
         });
