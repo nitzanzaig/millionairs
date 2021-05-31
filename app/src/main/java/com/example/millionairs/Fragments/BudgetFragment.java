@@ -5,10 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
 import com.example.millionairs.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -49,10 +53,12 @@ public class BudgetFragment extends Fragment {
     TextView budgetTextView, remainingTextView, homeTextView, groceriesTextView, healthTextView, educationTextView, leisureTextView,
             transportationTextView, loansTextView, savingsTextView, shoppingTextView, otherTextView;
 
+    Button addBudgetBtn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_budget, container, false);
         progressBarHome = view.findViewById(R.id.progressBarHome);
         progressBarGroceries = view.findViewById(R.id.progressBarGroceries);
@@ -77,6 +83,23 @@ public class BudgetFragment extends Fragment {
         shoppingTextView = view.findViewById(R.id.textViewShopping1);
         otherTextView = view.findViewById(R.id.textViewOther1);
         final int[] totalBudget = {0};
+
+        addBudgetBtn = view.findViewById(R.id.Add_BudgetButton);
+
+        if (! Python.isStarted()) {
+            Python.start(new AndroidPlatform(this.getContext()));
+        }
+
+        Python py = Python.getInstance();
+        final PyObject pyObj = py.getModule("test");
+
+        // PyObject obj;
+
+        addBudgetBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view1){
+                PyObject obj = pyObj.callAttr("main", 1, 2);
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
