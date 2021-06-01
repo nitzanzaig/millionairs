@@ -10,26 +10,30 @@
         android:id="@+id/infoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:onClick="moveToInfo"
         android:text="INFO"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tipsButton"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.269"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.181"
-        android:onClick="moveToInfo" />
+        app:layout_constraintVertical_bias="0.035" />
 
     <Button
         android:id="@+id/tipsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
         android:text="TIPS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/infoButton"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.181" />
+        app:layout_constraintVertical_bias="0.035" />
 
     <TextView
         android:id="@+id/welcomeTextView"
@@ -40,6 +44,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#111e77"
+        android:layout_marginTop="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,14 +56,33 @@
         android:layout_width="365dp"
         android:layout_height="84dp"
         android:layout_marginStart="23dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="23dp"
         android:gravity="center"
-        android:textColor="#111e77"
         android:text="If you want to ask our bot for information, press on the Info button. If you want our bot to help you with different topics, press on the Tips button."
+        android:textColor="#111e77"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image"
         app:layout_constraintVertical_bias="0.0" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/bot"
+        app:civ_border_color="#B2FFFFFF"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

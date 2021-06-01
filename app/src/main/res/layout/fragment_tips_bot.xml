@@ -29,13 +29,39 @@
     </Toolbar>
 
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/bot"
+        app:civ_border_color="#B2FFFFFF"
+        app:civ_border_width="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please choose a subject"
+        android:layout_marginTop="225dp"
+        android:layout_marginStart="125dp"
+        android:textSize="15dp"
+        android:textColor="#111E77"
+        />
     <Button
         android:id="@+id/InsurancesButton"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="75dp"
         android:textSize="13dp"
         android:textStyle="bold"
-        android:layout_marginTop="415dp"
+        android:layout_marginTop="485dp"
         android:layout_marginStart="220dp"
         android:text="Insurances"
 
@@ -44,53 +70,52 @@
 
     <Button
         android:id="@+id/RightsButton"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="75dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="265dp"
         android:text="Rights"
         android:textSize="13dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/PensionButton"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="75dp"
-        android:textSize="13dp"
-        android:textStyle="bold"
         android:layout_marginStart="220dp"
-        android:layout_marginTop="165dp"
-        android:text="Pension" />
+        android:layout_marginTop="265dp"
+        android:text="Pension"
+        android:textSize="13dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/CommissionsButton"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="75dp"
         android:textSize="13dp"
         android:textStyle="bold"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="375dp"
         android:text="Commissions" />
 
     <Button
         android:id="@+id/WorkplacerightsButton"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="75dp"
-        android:textSize="13dp"
-        android:textStyle="bold"
         android:layout_marginStart="220dp"
-        android:layout_marginTop="290dp"
-        android:text="Work place rights" />
+        android:layout_marginTop="375dp"
+        android:text="Work place rights"
+        android:textSize="13dp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/CommunicationButton"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="75dp"
-        android:textSize="13dp"
-        android:textStyle="bold"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="414dp"
+        android:layout_marginTop="485dp"
         android:text="Communication"
- />
+        android:textSize="13dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
