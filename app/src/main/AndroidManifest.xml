@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.millionairs">
+    package="com.nitzan.millionairs">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Millionairs">
-        <activity android:name=".TipBotActivity" />
+        <activity android:name="millionairs.example.millionairs.TipBotActivity" />
         <activity
-            android:name=".logActivity"
+            android:name="millionairs.example.millionairs.logActivity"
             android:label="millionairs" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignupMainActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="millionairs.example.millionairs.SignupMainActivity" />
+        <activity android:name="millionairs.example.millionairs.MainActivity" />
     </application>
 
 </manifest>

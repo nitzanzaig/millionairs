@@ -1,34 +1,27 @@
-package com.example.millionairs;
+package millionairs.example.millionairs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.SeekBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
-import com.example.millionairs.Fragments.BotFragment;
-import com.example.millionairs.Fragments.BudgetFragment;
-import com.example.millionairs.Fragments.ExpensesFragment;
-import com.example.millionairs.Fragments.IncomeFragment;
-import com.example.millionairs.Fragments.PersonalDetailsFragment;
+import millionairs.example.millionairs.Fragments.BotFragment;
+import millionairs.example.millionairs.Fragments.BudgetFragment;
+import millionairs.example.millionairs.Fragments.ExpensesFragment;
+import millionairs.example.millionairs.Fragments.IncomeFragment;
+import millionairs.example.millionairs.Fragments.PersonalDetailsFragment;
+
+import com.nitzan.millionairs.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import com.example.millionairs.databinding.ActivityMainBinding;
+import com.nitzan.millionairs.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;

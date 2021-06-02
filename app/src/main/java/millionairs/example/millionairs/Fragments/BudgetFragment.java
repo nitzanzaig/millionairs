@@ -1,4 +1,4 @@
-package com.example.millionairs.Fragments;
+package millionairs.example.millionairs.Fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
-import com.example.millionairs.R;
+import com.nitzan.millionairs.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;

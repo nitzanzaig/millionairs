@@ -1,4 +1,4 @@
-package com.example.millionairs.Fragments;
+package millionairs.example.millionairs.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.millionairs.R;
-import com.example.millionairs.TipBotActivity;
-
-import java.util.Objects;
+import com.nitzan.millionairs.R;
+import millionairs.example.millionairs.TipBotActivity;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
