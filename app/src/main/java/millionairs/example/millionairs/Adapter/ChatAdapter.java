@@ -1,4 +1,4 @@
-package com.example.millionairs.Adapter;
+package millionairs.example.millionairs.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.millionairs.Chat;
-import com.example.millionairs.R;
+import millionairs.example.millionairs.Chat;
+import com.nitzan.millionairs.R;
 
 import org.jetbrains.annotations.NotNull;
 

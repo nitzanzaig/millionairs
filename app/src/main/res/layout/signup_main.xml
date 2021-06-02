@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#111E77"
-    tools:context=".SignupMainActivity">
+    tools:context="millionairs.example.millionairs.SignupMainActivity">
 
     <Button
         android:id="@+id/submitButtonExpenses"

@@ -63,6 +63,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:630044639012:android:d84ea3411b13f1c11c7db1",
+        "android_client_info": {
+          "package_name": "com.nitzan.millionairs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "630044639012-ftji8dv6t7dqdltr5vbgmfj2ep32g3f5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsfrsRu0OnS44zP-RdrY_Boy_tlckFC4A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630044639012-ftji8dv6t7dqdltr5vbgmfj2ep32g3f5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"
