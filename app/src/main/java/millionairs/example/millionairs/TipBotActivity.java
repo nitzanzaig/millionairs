@@ -284,13 +284,13 @@ public class TipBotActivity extends AppCompatActivity {
                 if (mChatList.get(mChatList.size() - 1).getMessage().toLowerCase().equals("yes")){
                     switch (count){
                         case 1:
-                            mChatList.add(new Chat(communication_responses[0], false));
+                            mChatList.add(new Chat(rights_responses[0], false));
                             break;
                         case 3:
-                            mChatList.add(new Chat(communication_responses[1], false));
+                            mChatList.add(new Chat(rights_responses[1], false));
                             break;
                         case 5:
-                            mChatList.add(new Chat(communication_responses[2], false));
+                            mChatList.add(new Chat(rights_responses[2], false));
                             break;
                     }
                 }

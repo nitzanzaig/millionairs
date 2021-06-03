@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.nitzan.millionairs.R;
+
+import millionairs.example.millionairs.ConvoBotActivity;
 import millionairs.example.millionairs.TipBotActivity;
 
 import androidx.fragment.app.Fragment;
@@ -48,12 +50,7 @@ public class BotFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                /*Fragment fragment = new TipsBotFragment();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();*/
-                Intent intent = new Intent(getActivity(), TipBotActivity.class);
+                Intent intent = new Intent(view.getContext(), ConvoBotActivity.class);
                 startActivity(intent);
             }
         });

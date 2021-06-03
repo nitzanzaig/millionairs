@@ -32,6 +32,10 @@ android {
 
         python {
             buildPython "../../AppData/Local/Programs/Python/Python38-32/python.exe"
+            pip{
+                install "nltk"
+                install "tensorflow"
+            }
         }
     }
 

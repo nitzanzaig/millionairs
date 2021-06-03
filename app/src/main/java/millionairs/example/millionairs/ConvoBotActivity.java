@@ -13,6 +13,9 @@ import android.widget.Toast;
 
 import millionairs.example.millionairs.Adapter.ChatAdapter;
 
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
 import com.nitzan.millionairs.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.ml.modeldownloader.CustomModel;
@@ -20,6 +23,7 @@ import com.google.firebase.ml.modeldownloader.CustomModelDownloadConditions;
 import com.google.firebase.ml.modeldownloader.DownloadType;
 import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader;
 
+import org.jetbrains.annotations.NotNull;
 import org.tensorflow.lite.Interpreter;
 
 import java.io.File;
@@ -37,31 +41,18 @@ public class ConvoBotActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convo_bot);
-        CustomModelDownloadConditions conditions = new CustomModelDownloadConditions.Builder()
-                .requireWifi()  // Also possible: .requireCharging() and .requireDeviceIdle()
-                .build();
-        FirebaseModelDownloader.getInstance()
-                .getModel("chatbot", DownloadType.LOCAL_MODEL_UPDATE_IN_BACKGROUND, conditions)
-                .addOnSuccessListener(new OnSuccessListener<CustomModel>() {
-                    @Override
-                    public void onSuccess(CustomModel model) {
-                        // Download complete. Depending on your app, you could enable the ML
-                        // feature, or switch from the local model to the remote model, etc.
 
-                        // The CustomModel object contains the local path of the model file,
-                        // which you can use to instantiate a TensorFlow Lite interpreter.
-                        File modelFile = model.getFile();
-                        if (modelFile != null) {
-                            Interpreter interpreter = new Interpreter(modelFile);
-                        }
-                    }
-                });
+        if(!Python.isStarted()){
+            Python.start(new AndroidPlatform(this));
+        }
+
         sendImageView = findViewById(R.id.send_image_button);
         messageEditText = findViewById(R.id.text_message);
         recyclerViewChat = findViewById(R.id.recycler_view_chat);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerViewChat.setLayoutManager(linearLayoutManager);
+        sendMessage("Hello! My name is Fin, I'm your personal financial helper. ", false);
         sendImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,8 +61,12 @@ public class ConvoBotActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please write a message", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    Python py = Python.getInstance();
+                    @NotNull PyObject pyobj = py.getModule("chatbot");
+                    PyObject obj = pyobj.callAttr("main", message);
                     sendMessage(message, true);
                     messageEditText.setText("");
+                    sendMessage(obj.toString(), false);
                 }
             }
         });
@@ -80,13 +75,6 @@ public class ConvoBotActivity extends AppCompatActivity {
     private void sendMessage(String message, boolean isUser) {
         mChatList.add(new Chat(message, isUser));
         Log.d("Message", String.valueOf(mChatList.get(mChatList.size() - 1).getMessage()));
-        chatAdapter = new ChatAdapter(getApplicationContext(), mChatList);
-        recyclerViewChat.setAdapter(chatAdapter);
-        chatAdapter.notifyDataSetChanged();
-    }
-
-    private void RespondInsurances(){
-        mChatList.add(new Chat("How are you? Insurances", false));
         chatAdapter = new ChatAdapter(getApplicationContext(), mChatList);
         recyclerViewChat.setAdapter(chatAdapter);
         chatAdapter.notifyDataSetChanged();
