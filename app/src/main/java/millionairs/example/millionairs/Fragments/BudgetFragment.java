@@ -81,25 +81,6 @@ public class BudgetFragment extends Fragment {
         otherTextView = view.findViewById(R.id.textViewOther1);
         final int[] totalBudget = {0};
 
-        addBudgetBtn = view.findViewById(R.id.Add_BudgetButton);
-
-        if (! Python.isStarted()) {
-            Python.start(new AndroidPlatform(this.getContext()));
-        }
-
-        Python py = Python.getInstance();
-        final PyObject pyObj = py.getModule("test");
-
-        // PyObject obj;
-
-        addBudgetBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view1){
-
-                PyObject obj = pyObj.callAttr("main", 1, 2);
-                zero.setText(obj.toString());
-            }
-        });
-
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
 
@@ -195,6 +176,25 @@ public class BudgetFragment extends Fragment {
                     otherTextView.setText(amounts[9] + "/" + progressBarOther.getMax());
 
                 }
+            }
+        });
+
+        addBudgetBtn = view.findViewById(R.id.Add_BudgetButton);
+
+        if (! Python.isStarted()) {
+            Python.start(new AndroidPlatform(this.getContext()));
+        }
+
+        Python py = Python.getInstance();
+        final PyObject pyObj = py.getModule("test");
+
+        // PyObject obj;
+
+        addBudgetBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view1){
+
+                PyObject obj = pyObj.callAttr("main", 1, 2);
+                zero.setText(obj.toString());
             }
         });
 
