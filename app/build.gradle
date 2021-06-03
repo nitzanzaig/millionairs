@@ -35,6 +35,10 @@ android {
             pip{
                 install "nltk"
                 install "tensorflow"
+                install "json"
+                install "sklearn"
+                install "random"
+                install "numpy"
             }
         }
     }
