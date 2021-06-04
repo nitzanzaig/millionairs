@@ -4,6 +4,8 @@ import numpy
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
+import json
+
 stemmer = LancasterStemmer()
 all_responses = []
 
@@ -200,7 +202,7 @@ def chat(model, labels_dict, pattern_vocab, message):
             if tag == "wellness-response":
                 return "Bot: How can I help you today?"
         else:
-            print("Sorry, I dont understand")
+            return "Sorry, I dont understand"
             
         if all_responses[-1][0] == "respond-again":
             count = -2
@@ -219,9 +221,7 @@ def chat(model, labels_dict, pattern_vocab, message):
                         return "Bot: How can I help you today?"
                     break
 
-def main():
-
-    message = input("Enter a message")
+def main(message):
 
     try:
         labels_dict, pattern_vocab = load_data(dataset)

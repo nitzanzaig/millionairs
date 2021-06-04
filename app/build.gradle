@@ -38,6 +38,7 @@ android {
                 install "sklearn"
                 install "random"
                 install "numpy"
+                install "json"
             }
         }
     }
