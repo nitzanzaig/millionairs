@@ -1,6 +1,5 @@
 import random
 from tensorflow import keras
-import json
 import numpy
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
