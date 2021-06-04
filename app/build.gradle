@@ -36,9 +36,9 @@ android {
                 install "nltk"
                 install "tensorflow"
                 install "sklearn"
-                install "random"
+                install "random2"
                 install "numpy"
-                install "json"
+                //install "json"
             }
         }
     }
