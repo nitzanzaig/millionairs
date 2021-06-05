@@ -186,14 +186,16 @@ public class BudgetFragment extends Fragment {
         }
 
         Python py = Python.getInstance();
+        // TODO: change the name to knn
         final PyObject pyObj = py.getModule("test");
 
         // PyObject obj;
 
         addBudgetBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view1){
-
+                // TODO: change the args to expenses
                 PyObject obj = pyObj.callAttr("main", 1, 2);
+                // TODO: insert the new budget to DB
                 zero.setText(obj.toString());
             }
         });
