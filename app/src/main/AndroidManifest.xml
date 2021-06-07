@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Millionairs">
-        <activity android:name=".TempActivityChaq"></activity>
         <activity android:name="millionairs.example.millionairs.TipBotActivity" />
         <activity
             android:name="millionairs.example.millionairs.logActivity"

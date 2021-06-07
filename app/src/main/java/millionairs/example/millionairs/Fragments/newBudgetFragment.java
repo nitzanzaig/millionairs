@@ -33,11 +33,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link newBudgetFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class newBudgetFragment extends Fragment {
 
     ProgressBar progressBarHome, progressBarGroceries, progressBarHealth, progressBarEducation, progressBarLeisure,

@@ -4,6 +4,7 @@ import json
 import numpy
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
+nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 all_responses = []
@@ -106,8 +107,8 @@ def tokenize_stem(string_input):
 
 def load_data(data):
     try:
-        with open('data/english_labels_list.json', 'r') as labels_file, open(
-                'data/english_pattern_vocab.json', 'r') as pattern_file:
+        with open('app/src/main/python/data/english_labels_list.json', 'r') as labels_file, open(
+                'app/src/main/python/data/english_pattern_vocab.json', 'r') as pattern_file:
             labels_dict = json.load(labels_file)
             pattern_vocab = json.load(pattern_file)
             return labels_dict, pattern_vocab
@@ -231,5 +232,5 @@ def main(message):
         labels_dict, pattern_vocab, input_x, input_y = generate_data(dataset)
         model = create_model(input_x, input_y)
         model.fit(input_x, input_y, epochs=500, batch_size=8)
-        model.save("english_model.h5")
+        model.save("app/src/main/python/english_model.h5")
         return chat(model, labels_dict, pattern_vocab, message)

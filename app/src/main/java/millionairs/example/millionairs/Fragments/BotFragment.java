@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.nitzan.millionairs.R;
-import com.nitzan.millionairs.TempActivityChaq;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -49,7 +48,7 @@ public class BotFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), TempActivityChaq.class);
+                Intent intent = new Intent(view.getContext(), ConvoBotActivity.class);
                 startActivity(intent);
             }
         });
