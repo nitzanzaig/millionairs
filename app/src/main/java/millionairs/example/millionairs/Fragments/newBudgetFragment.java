@@ -1,7 +1,10 @@
 package millionairs.example.millionairs.Fragments;
 
-import android.content.Context;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +13,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
-import com.nitzan.millionairs.R;
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -25,17 +27,18 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.nitzan.millionairs.R;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class BudgetFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link newBudgetFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class newBudgetFragment extends Fragment {
 
     ProgressBar progressBarHome, progressBarGroceries, progressBarHealth, progressBarEducation, progressBarLeisure,
             progressBarTransportation, progressBarLoans, progressBarSaving, progressBarShopping, progressBarOther;
@@ -50,19 +53,18 @@ public class BudgetFragment extends Fragment {
 
     Button addBudgetBtn;
 
-    private Context mContext;
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
-    @Override
-    public void onAttach(@NonNull @NotNull Context context) {
-        super.onAttach(context);
-        mContext = context;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_budget, container, false);
+        View view = inflater.inflate(R.layout.fragment_new_budget, container, false);
+
         progressBarHome = view.findViewById(R.id.progressBarHome);
         progressBarGroceries = view.findViewById(R.id.progressBarGroceries);
         progressBarHealth = view.findViewById(R.id.progressBarHealth);
@@ -204,8 +206,8 @@ public class BudgetFragment extends Fragment {
 
         addBudgetBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view1){
-                /*8if (! Python.isStarted()) {
-                    Python.start(new AndroidPlatform(mContext));
+                if (! Python.isStarted()) {
+                    Python.start(new AndroidPlatform(requireContext()));
                 }
 
                 Python py = Python.getInstance();
@@ -215,17 +217,11 @@ public class BudgetFragment extends Fragment {
                 PyObject obj = pyObj.callAttr("main", 1, 2);
                 // TODO: insert the new budget to DB
                 zero.setText(obj.toString());
-                Log.d("Answer", obj.toString());*/
+                Log.d("Answer", obj.toString());
             }
         });
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_budget, container, false);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mContext = null;
+        return view;
     }
 }

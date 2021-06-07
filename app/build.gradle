@@ -31,14 +31,15 @@ android {
         }
 
         python {
-            buildPython "../../AppData/Local/Programs/Python/Python38-32/python.exe"
+            buildPython "C:\\Users\\along\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+        }
+
+        python{
             pip{
                 install "nltk"
                 install "tensorflow"
                 install "sklearn"
-                install "random2"
                 install "numpy"
-                //install "json"
                 install "pandas"
             }
         }
@@ -65,9 +66,9 @@ dependencies {
     implementation 'org.tensorflow:tensorflow-lite-task-text:0.1.0'
     implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
     implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly-SNAPSHOT'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
@@ -77,10 +78,10 @@ dependencies {
     implementation 'org.jetbrains:annotations:15.0'
     implementation 'org.tensorflow:tensorflow-lite-support:0.1.0-rc1'
     implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0-rc1'
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.firebase:firebase-firestore:23.0.0'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
-    testImplementation 'junit:junit:4.+'
+    testImplementation 'junit:junit:4.13.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.13.2.'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

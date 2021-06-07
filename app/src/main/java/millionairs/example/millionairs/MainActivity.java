@@ -20,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import millionairs.example.millionairs.Fragments.newBudgetFragment;
 
 import com.nitzan.millionairs.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.nav_budget:
                     toolbar_title.setText(R.string.budget);
-                    moveToFragment(new BudgetFragment());
+                    moveToFragment(new newBudgetFragment());
                     break;
             }
 
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         toolbar_title.setText("Budget");
-        moveToFragment(new BudgetFragment());
+        moveToFragment(new newBudgetFragment());
     }
 
     public void moveToFragment(Fragment fragment){

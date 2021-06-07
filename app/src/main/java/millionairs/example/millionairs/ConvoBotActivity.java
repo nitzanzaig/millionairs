@@ -17,16 +17,9 @@ import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import com.nitzan.millionairs.R;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.ml.modeldownloader.CustomModel;
-import com.google.firebase.ml.modeldownloader.CustomModelDownloadConditions;
-import com.google.firebase.ml.modeldownloader.DownloadType;
-import com.google.firebase.ml.modeldownloader.FirebaseModelDownloader;
 
 import org.jetbrains.annotations.NotNull;
-import org.tensorflow.lite.Interpreter;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class ConvoBotActivity extends AppCompatActivity {
@@ -52,6 +45,8 @@ public class ConvoBotActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         linearLayoutManager.setStackFromEnd(true);
         recyclerViewChat.setLayoutManager(linearLayoutManager);
+        chatAdapter = new ChatAdapter(getApplicationContext(), mChatList);
+        recyclerViewChat.setAdapter(chatAdapter);
         sendMessage("Hello! My name is Fin, I'm your personal financial helper. ", false);
         sendImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,11 +56,11 @@ public class ConvoBotActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please write a message", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    sendMessage(message, true);
+                    messageEditText.setText("");
                     Python py = Python.getInstance();
                     @NotNull PyObject pyobj = py.getModule("chatbot");
                     PyObject obj = pyobj.callAttr("main", message);
-                    sendMessage(message, true);
-                    messageEditText.setText("");
                     sendMessage(obj.toString(), false);
                 }
             }
@@ -75,8 +70,6 @@ public class ConvoBotActivity extends AppCompatActivity {
     private void sendMessage(String message, boolean isUser) {
         mChatList.add(new Chat(message, isUser));
         Log.d("Message", String.valueOf(mChatList.get(mChatList.size() - 1).getMessage()));
-        chatAdapter = new ChatAdapter(getApplicationContext(), mChatList);
-        recyclerViewChat.setAdapter(chatAdapter);
         chatAdapter.notifyDataSetChanged();
     }
 }

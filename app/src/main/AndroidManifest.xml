@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Millionairs">
+        <activity android:name=".TempActivityChaq"></activity>
         <activity android:name="millionairs.example.millionairs.TipBotActivity" />
         <activity
             android:name="millionairs.example.millionairs.logActivity"
-            android:label="millionairs" >
+            android:label="millionairs">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,5 +24,8 @@
         <activity android:name="millionairs.example.millionairs.ConvoBotActivity" />
         <activity android:name="millionairs.example.millionairs.MainActivity" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
