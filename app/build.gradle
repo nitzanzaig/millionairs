@@ -31,7 +31,8 @@ android {
         }
 
         python {
-            buildPython "C:\\Users\\along\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+            buildPython "C:\\Users\\Dell\\PycharmProjects\\competitive\\venv\\Scripts\\python.exe"
+
         }
 
         python{
