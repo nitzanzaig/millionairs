@@ -43,7 +43,7 @@
 
                 <EditText
                     android:id="@+id/ageEditTextPersonal"
-                    :layout_marginBottom="27dp"
+                    android:layout_marginBottom="27dp"
                     android:layout_width="69dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
@@ -100,7 +100,7 @@
 
                 <EditText
                     android:id="@+id/householdEditTextPersonal"
-                    :layout_marginBottom="27dp"
+                    android:layout_marginBottom="27dp"
                     android:layout_width="72dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"

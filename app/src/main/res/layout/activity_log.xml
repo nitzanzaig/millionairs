@@ -7,26 +7,11 @@
     android:background="#111E77"
     tools:context="millionairs.example.millionairs.logActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login Page"
-        android:textColor="#0FEFDC"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
-
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#0FEFDC"
+        android:backgroundTint="#0FDCEF"
         android:text="Log in"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,8 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="sign UP"
-        android:textColor="@color/black"
-        app:backgroundTint="#0FEFDC"
+        android:textColor="#0FDCEF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
@@ -54,18 +38,17 @@
         android:id="@+id/emailEditTextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
         android:ems="10"
         android:hint="Enter Email"
         android:inputType="textEmailAddress"
-        android:textColor="#0FEFDC"
-        android:textColorHint="#0FEFDC"
+        android:textColor="#0FDCEF"
+        android:textColorHint="#0FDCEF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451" />
 
     <EditText
         android:id="@+id/passwordEditTextLogin"
@@ -74,8 +57,8 @@
         android:ems="10"
         android:hint="Enter password"
         android:inputType="textPassword"
-        android:textColorHint="#0FEFDC"
-        android:textColor="#0FEFDC"
+        android:textColorHint="#0FDCEF"
+        android:textColor="#0FDCEF"
         app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -85,20 +68,49 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="133dp"
-        android:layout_height="125dp"
-        android:layout_marginStart="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="150dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="100dp"
         android:src="@drawable/loginman"
-        app:civ_border_color="#0FEFDC"
-        app:civ_border_width="2dp"
+        app:civ_border_color="#0FDCEF"
+        app:civ_border_width="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.002"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.368" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/key"
+        app:civ_border_color="#0FDCEF"
+        app:civ_border_width="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.541" />
+
+    <ImageView
+        android:id="@+id/hey"
+        android:layout_width="405dp"
+        android:layout_height="129dp"
+        android:layout_marginBottom="181dp"
+        android:src="@drawable/penn"
+        app:layout_constraintBottom_toTopOf="@+id/emailEditTextLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -94,7 +94,7 @@ public class BudgetFragment extends Fragment {
         assert currentUser != null;
         String currentEmail = currentUser.getEmail();
         DocumentReference budgetRef = budget.document(Objects.requireNonNull(currentEmail));
-
+        // TODO: add what to do in case there is no expenses in the DB
         budgetRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
