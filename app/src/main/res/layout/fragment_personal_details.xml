@@ -43,12 +43,12 @@
 
                 <EditText
                     android:id="@+id/ageEditTextPersonal"
-                    android:layout_marginBottom="27dp"
                     android:layout_width="69dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="300dp"
+                    android:layout_marginBottom="27dp"
                     android:ems="10"
                     android:inputType="number" />
             </LinearLayout>
@@ -100,12 +100,12 @@
 
                 <EditText
                     android:id="@+id/householdEditTextPersonal"
-                    android:layout_marginBottom="27dp"
                     android:layout_width="72dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="300dp"
+                    android:layout_marginBottom="27dp"
                     android:ems="10"
                     android:inputType="number" />
             </LinearLayout>
@@ -137,216 +137,13 @@
                     android:layout_marginBottom="27dp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginBottom="30dp"
-                android:gravity="center_horizontal"
-                android:text="Rate from 1-5 your abillity to save money in the following categories"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="30dp"
-                android:gravity="center_horizontal"
-                android:text="1-Can't Save              5- No Problem"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal"
-                android:text="Home Bills (electricty, water, gaz, etc.) "
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sb"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:gravity="center_horizontal"
-                android:text="You Rated 1"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <SeekBar
-                android:id="@+id/SeekBarID"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="30dp"
-                android:max="5"
-                android:min="1"
-                android:progress="1"
-                android:scaleX="2"
-                android:scaleY="2" />
-
-            <TextView
-                android:id="@+id/tv1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal"
-                android:text="Leisure (shopping, grooming, resturants, vacations, etc.)"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sb1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:gravity="center_horizontal"
-                android:text="You Rated 1"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <SeekBar
-                android:id="@+id/SeekBarID1"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="30dp"
-                android:max="5"
-                android:min="1"
-                android:progress="1"
-                android:scaleX="2"
-                android:scaleY="2" />
-
-            <TextView
-                android:id="@+id/tv2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal"
-                android:text="Transportaion (fuel, treatment, public transportation) "
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sb2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:gravity="center_horizontal"
-                android:text="You Rated 1"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <SeekBar
-                android:id="@+id/SeekBarID2"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="30dp"
-                android:max="5"
-                android:min="1"
-                android:progress="1"
-                android:scaleX="2"
-                android:scaleY="2" />
-
-            <TextView
-                android:id="@+id/tv3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal"
-                android:text="Housing (mortgage, maintenance, house committee, ect.)"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sb3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:gravity="center_horizontal"
-                android:text="You Rated 1"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <SeekBar
-                android:id="@+id/SeekBarID3"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="30dp"
-                android:max="5"
-                android:min="1"
-                android:progress="1"
-                android:scaleX="2"
-                android:scaleY="2" />
-
-            <TextView
-                android:id="@+id/tv4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal"
-                android:text="Loans and Credit Card Fees"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/sb4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:gravity="center_horizontal"
-                android:text="You Rated 1"
-                android:textColor="#111e77"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <SeekBar
-                android:id="@+id/SeekBarID4"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="30dp"
-                android:max="5"
-                android:min="1"
-                android:progress="1"
-                android:scaleX="2"
-                android:scaleY="2" />
-
             <Button
                 android:id="@+id/submitButtonExpenses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
+                android:layout_marginTop="80dp"
                 android:text="Submit"
                 android:textColor="@color/white" />
 

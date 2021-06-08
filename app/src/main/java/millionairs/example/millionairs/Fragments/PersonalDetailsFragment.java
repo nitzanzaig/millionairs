@@ -149,111 +149,6 @@ public class PersonalDetailsFragment extends Fragment {
             }
         });
 
-        seek_bar = view.findViewById(R.id.SeekBarID);
-        seek_bar1 = view.findViewById(R.id.SeekBarID1);
-        seek_bar2 = view.findViewById(R.id.SeekBarID2);
-        seek_bar3 = view.findViewById(R.id.SeekBarID3);
-        seek_bar4 = view.findViewById(R.id.SeekBarID4);
-        sb = view.findViewById(R.id.sb);
-        sb1 = view.findViewById(R.id.sb1);
-        sb2 = view.findViewById(R.id.sb2);
-        sb3 = view.findViewById(R.id.sb3);
-        sb4 = view.findViewById(R.id.sb4);
-        seek_bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-                sb.setText("You Rated " + String.valueOf(progress));
-                values.set(0, String.valueOf(progress));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-        seek_bar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-                sb1.setText("You Rated " + String.valueOf(progress));
-                values.set(1, String.valueOf(progress));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar1) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar1) {
-
-            }
-        });
-        seek_bar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-                sb2.setText("You Rated " + String.valueOf(progress));
-                values.set(2, String.valueOf(progress));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar2) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar2) {
-
-            }
-        });
-        seek_bar3.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar3, int progress, boolean fromUser) {
-
-                sb3.setText("You Rated " + String.valueOf(progress));
-                values.set(3, String.valueOf(progress));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar3) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar3) {
-
-            }
-        });
-        seek_bar4.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar4, int progress, boolean fromUser) {
-
-                sb4.setText("You Rated " + String.valueOf(progress));
-                values.set(4, String.valueOf(progress));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar4) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar4) {
-
-            }
-        });
 
         submitButton = view.findViewById(R.id.submitButtonExpenses);
 
@@ -278,25 +173,9 @@ public class PersonalDetailsFragment extends Fragment {
                 personalObj.put("transportation", values.get(2));
                 personalObj.put("housing", values.get(3));
                 personalObj.put("loans_and_credit_cards", values.get(4));
-
-                DocumentReference documentReference = preferences.document(currentUser.getEmail());
-                documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                documentReference.update(personalObj);
-                            } else {
-                                documentReference.set(personalObj);
-                            }
-                        } else {
-                            Log.d("Personal Details", "Failed with: ", task.getException());
-                        }
-                    }
-                });
             }
         });
+
         return view;
     }
 }
