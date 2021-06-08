@@ -12,11 +12,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,8 +31,12 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.nitzan.millionairs.R;
 
+import org.checkerframework.checker.units.qual.A;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class newBudgetFragment extends Fragment {
@@ -46,7 +52,7 @@ public class newBudgetFragment extends Fragment {
     private final CollectionReference income = db.collection("Income");
     TextView budgetTextView, remainingTextView, homeTextView, groceriesTextView, healthTextView, educationTextView, leisureTextView,
             transportationTextView, loansTextView, savingsTextView, shoppingTextView, otherTextView, zero;
-
+    String currentEmail;
     Button addBudgetBtn;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -84,38 +90,54 @@ public class newBudgetFragment extends Fragment {
         shoppingTextView = view.findViewById(R.id.textViewShopping1);
         otherTextView = view.findViewById(R.id.textViewOther1);
         //zero = view.findViewById(R.id.zero);
-        final int[] totalBudget = {0};
+        double[] totalBudget = {0};
+        double[] currentBudget = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
 
         assert currentUser != null;
-        String currentEmail = currentUser.getEmail();
+        currentEmail = currentUser.getEmail();
         DocumentReference budgetRef = budget.document(Objects.requireNonNull(currentEmail));
 
         budgetRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                progressBarHome.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Home"))));
-                progressBarGroceries.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Groceries"))));
-                progressBarHealth.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Health"))));
-                progressBarEducation.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Education"))));
-                progressBarLeisure.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Leisure"))));
-                progressBarTransportation.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Transportation"))));
-                progressBarSaving.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Savings"))));
-                progressBarLoans.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Loans"))));
-                progressBarShopping.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Shopping"))));
-                progressBarOther.setMax(Integer.parseInt(String.valueOf(documentSnapshot.get("Other"))));
-                totalBudget[0] = Integer.parseInt(String.valueOf(documentSnapshot.get("Home"))) + Integer.parseInt(String.valueOf(documentSnapshot.get("Groceries"))) +
-                        Integer.parseInt(String.valueOf(documentSnapshot.get("Health"))) + Integer.parseInt(String.valueOf(documentSnapshot.get("Education"))) +
-                        Integer.parseInt(String.valueOf(documentSnapshot.get("Leisure"))) + Integer.parseInt(String.valueOf(documentSnapshot.get("Transportation"))) +
-                        Integer.parseInt(String.valueOf(documentSnapshot.get("Savings"))) + Integer.parseInt(String.valueOf(documentSnapshot.get("Loans"))) +
-                        Integer.parseInt(String.valueOf(documentSnapshot.get("Shopping"))) + Integer.parseInt(String.valueOf(documentSnapshot.get("Other")));
-                budgetTextView.setText("Current Budget is " + totalBudget[0]+"₪");
+                currentBudget[0] = Double.parseDouble(String.valueOf(documentSnapshot.get("Home")));
+                currentBudget[1] = Double.parseDouble(String.valueOf(documentSnapshot.get("Groceries")));
+                currentBudget[2] = Double.parseDouble(String.valueOf(documentSnapshot.get("Health")));
+                currentBudget[3] = Double.parseDouble(String.valueOf(documentSnapshot.get("Education")));
+                currentBudget[4] = Double.parseDouble(String.valueOf(documentSnapshot.get("Leisure")));
+                currentBudget[5] = Double.parseDouble(String.valueOf(documentSnapshot.get("Transportation")));
+                currentBudget[6] = Double.parseDouble(String.valueOf(documentSnapshot.get("Savings")));
+                currentBudget[7] = Double.parseDouble(String.valueOf(documentSnapshot.get("Loans")));
+                currentBudget[8] = Double.parseDouble(String.valueOf(documentSnapshot.get("Shopping")));
+                currentBudget[9] = Double.parseDouble(String.valueOf(documentSnapshot.get("Other")));
+                progressBarHome.setMax((int) currentBudget[0]);
+                progressBarGroceries.setMax((int) currentBudget[1]);
+                progressBarHealth.setMax((int) currentBudget[2]);
+                progressBarEducation.setMax((int) currentBudget[3]);
+                progressBarLeisure.setMax((int) currentBudget[4]);
+                progressBarTransportation.setMax((int) currentBudget[5]);
+                progressBarSaving.setMax((int) currentBudget[6]);
+                progressBarLoans.setMax((int) currentBudget[7]);
+                progressBarShopping.setMax((int) currentBudget[8]);
+                progressBarOther.setMax((int) currentBudget[9]);
+                totalBudget[0] = Double.parseDouble(String.valueOf(documentSnapshot.get("Home"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Groceries"))) +
+                        Double.parseDouble(String.valueOf(documentSnapshot.get("Health"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Education"))) +
+                        Double.parseDouble(String.valueOf(documentSnapshot.get("Leisure"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Transportation"))) +
+                        Double.parseDouble(String.valueOf(documentSnapshot.get("Savings"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Loans"))) +
+                        Double.parseDouble(String.valueOf(documentSnapshot.get("Shopping"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Other")));
+                budgetTextView.setText("Current Budget is " + String.format("%.2f", totalBudget[0]) + "₪");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Toast.makeText(requireContext(), "You don't have a budget yet! Please create one.", Toast.LENGTH_SHORT).show();
             }
         });
 
-        int[] amounts = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        double[] amounts = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         expenses.whereEqualTo("email", currentEmail).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -124,34 +146,34 @@ public class newBudgetFragment extends Fragment {
                     for (QueryDocumentSnapshot documentSnapshot : task.getResult()){
                         switch (String.valueOf(documentSnapshot.get("type"))){
                             case "Home":
-                                amounts[0] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[0] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Groceries":
-                                amounts[1] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[1] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Health":
-                                amounts[2] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[2] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Education":
-                                amounts[3] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[3] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Leisure":
-                                amounts[4] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[4] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Transportation":
-                                amounts[5] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[5] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Savings":
-                                amounts[6] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[6] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Loans":
-                                amounts[7] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[7] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Shopping":
-                                amounts[8] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[8] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                             case "Other":
-                                amounts[9] += Integer.parseInt(String.valueOf(documentSnapshot.get("amount")));
+                                amounts[9] += Double.parseDouble(String.valueOf(documentSnapshot.get("amount")));
                                 break;
                         }
                     }
@@ -159,36 +181,36 @@ public class newBudgetFragment extends Fragment {
                     for(int i = 0;i < 10;i++){
                         total += amounts[i];
                     }
-                    remainingTextView.setText("Remaining Amount is " + (totalBudget[0] - total)+"₪");
-                    progressBarHome.setProgress(amounts[0]);
-                    homeTextView.setText(amounts[0] + "₪ /" + progressBarHome.getMax() +"₪");
+                    remainingTextView.setText("Remaining Amount is " + String.format("%.2f", totalBudget[0] - total) +"₪");
+                    progressBarHome.setProgress((int) amounts[0]);
+                    homeTextView.setText(String.format("%.2f", amounts[0]) + "₪ /" + String.format("%.2f", currentBudget[0]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[0]));
-                    progressBarGroceries.setProgress(amounts[1]);
-                    groceriesTextView.setText(amounts[1] + "₪ /" + progressBarGroceries.getMax() +"₪");
+                    progressBarGroceries.setProgress((int) amounts[1]);
+                    groceriesTextView.setText(String.format("%.2f", amounts[1]) + "₪ /" + String.format("%.2f", currentBudget[1]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[1]));
-                    progressBarHealth.setProgress(amounts[2]);
-                    healthTextView.setText(amounts[2] + "₪ /" + progressBarHealth.getMax() +"₪");
+                    progressBarHealth.setProgress((int) amounts[2]);
+                    healthTextView.setText(String.format("%.2f", amounts[2]) + "₪ /" + String.format("%.2f", currentBudget[2]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[2]));
-                    progressBarEducation.setProgress(amounts[3]);
-                    educationTextView.setText(amounts[3] + "₪ /" + progressBarEducation.getMax() +"₪");
+                    progressBarEducation.setProgress((int) amounts[3]);
+                    educationTextView.setText(String.format("%.2f", amounts[3]) + "₪ /" + String.format("%.2f", currentBudget[3]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[3]));
-                    progressBarLeisure.setProgress(amounts[4]);
-                    leisureTextView.setText(amounts[4] + "₪ /" + progressBarLeisure.getMax() +"₪");
+                    progressBarLeisure.setProgress((int) amounts[4]);
+                    leisureTextView.setText(String.format("%.2f", amounts[4]) + "₪ /" + String.format("%.2f", currentBudget[4]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[4]));
-                    progressBarTransportation.setProgress(amounts[5]);
-                    transportationTextView.setText(amounts[5] + "₪ /" + progressBarTransportation.getMax() +"₪");
+                    progressBarTransportation.setProgress((int) amounts[5]);
+                    transportationTextView.setText(String.format("%.2f", amounts[5]) + "₪ /" + String.format("%.2f", currentBudget[5]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[5]));
-                    progressBarSaving.setProgress(amounts[6]);
-                    savingsTextView.setText(amounts[6] + "₪ /" + progressBarSaving.getMax() +"₪");
+                    progressBarSaving.setProgress((int) amounts[6]);
+                    savingsTextView.setText(String.format("%.2f", amounts[6]) + "₪ /" + String.format("%.2f", currentBudget[6]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[6]));
-                    progressBarLoans.setProgress(amounts[7]);
-                    loansTextView.setText(amounts[7] + "₪ /" + progressBarLoans.getMax() +"₪");
+                    progressBarLoans.setProgress((int) amounts[7]);
+                    loansTextView.setText(String.format("%.2f", amounts[7]) + "₪ /" + String.format("%.2f", currentBudget[7]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[7]));
-                    progressBarShopping.setProgress(amounts[8]);
-                    shoppingTextView.setText(amounts[8] + "₪ /" + progressBarShopping.getMax() +"₪");
+                    progressBarShopping.setProgress((int) amounts[8]);
+                    shoppingTextView.setText(String.format("%.2f", amounts[8]) + "₪ /" + String.format("%.2f", currentBudget[8]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[8]));
-                    progressBarOther.setProgress(amounts[9]);
-                    otherTextView.setText(amounts[9] + "₪ /" + progressBarOther.getMax() +"₪");
+                    progressBarOther.setProgress((int) amounts[9]);
+                    otherTextView.setText(String.format("%.2f", amounts[9]) + "₪ /" + String.format("%.2f", currentBudget[9]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[9]));
 
                 }
@@ -200,6 +222,7 @@ public class newBudgetFragment extends Fragment {
 
 
         // PyObject obj;
+
 
         addBudgetBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view1){
@@ -253,11 +276,141 @@ public class newBudgetFragment extends Fragment {
                 PyObject obj = pyObj.callAttr("main", age[0], livingArea[0], totalIncome[0], amounts[0], amounts[3], amounts[4], amounts[2], amounts[1], amounts[8], amounts[5], amounts[6], amounts[7], amounts[9], houseOldSize[0]);
                 // TODO: insert the new budget to DB
                 //zero.setText(obj.toString());
-                Log.d("Answer", "Success");
+                double perc = 0;
+                switch (Integer.parseInt(obj.toString())){
+                    case 0:
+                        perc = 0.89;
+                        break;
+                    case 1:
+                        perc = 0.91;
+                        break;
+                    case 2:
+                        perc = 0.93;
+                        break;
+                    case 3:
+                        perc = 0.95;
+                        break;
+                }
+                Map<String, Object> newBudget = new HashMap<>();
+                newBudget.put("Education", progressBarEducation.getMax() * perc);
+                newBudget.put("Groceries", progressBarGroceries.getMax() * perc);
+                newBudget.put("Health", progressBarHealth.getMax() * perc);
+                newBudget.put("Home", progressBarHome.getMax() * perc);
+                newBudget.put("Leisure", progressBarLeisure.getMax() * perc);
+                newBudget.put("Loans", progressBarLoans.getMax() * perc);
+                newBudget.put("Other", progressBarOther.getMax() * perc);
+                newBudget.put("Savings", progressBarSaving.getMax() * perc);
+                newBudget.put("Shopping", progressBarShopping.getMax() * perc);
+                newBudget.put("Transportation", progressBarTransportation.getMax() * perc);
+                budgetRef.update(newBudget).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        createNewBudget();
+                        Toast.makeText(requireContext(), "Budget was updated successfully", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private void createNewBudget(){
+        DocumentReference budgetRef = budget.document(Objects.requireNonNull(currentEmail));
+        final double[] totalBudget = {0};
+        double[] currentBudget = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        budgetRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                currentBudget[0] = Double.parseDouble(String.valueOf(documentSnapshot.get("Home")));
+                currentBudget[1] = Double.parseDouble(String.valueOf(documentSnapshot.get("Groceries")));
+                currentBudget[2] = Double.parseDouble(String.valueOf(documentSnapshot.get("Health")));
+                currentBudget[3] = Double.parseDouble(String.valueOf(documentSnapshot.get("Education")));
+                currentBudget[4] = Double.parseDouble(String.valueOf(documentSnapshot.get("Leisure")));
+                currentBudget[5] = Double.parseDouble(String.valueOf(documentSnapshot.get("Transportation")));
+                currentBudget[6] = Double.parseDouble(String.valueOf(documentSnapshot.get("Savings")));
+                currentBudget[7] = Double.parseDouble(String.valueOf(documentSnapshot.get("Loans")));
+                currentBudget[8] = Double.parseDouble(String.valueOf(documentSnapshot.get("Shopping")));
+                currentBudget[9] = Double.parseDouble(String.valueOf(documentSnapshot.get("Other")));
+                progressBarHome.setMax((int) currentBudget[0]);
+                progressBarGroceries.setMax((int) currentBudget[1]);
+                progressBarHealth.setMax((int) currentBudget[2]);
+                progressBarEducation.setMax((int) currentBudget[3]);
+                progressBarLeisure.setMax((int) currentBudget[4]);
+                progressBarTransportation.setMax((int) currentBudget[5]);
+                progressBarSaving.setMax((int) currentBudget[6]);
+                progressBarLoans.setMax((int) currentBudget[7]);
+                progressBarShopping.setMax((int) currentBudget[8]);
+                progressBarOther.setMax((int) currentBudget[9]);
+                totalBudget[0] = Double.parseDouble(String.valueOf(documentSnapshot.get("Home"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Groceries"))) +
+                        Double.parseDouble(String.valueOf(documentSnapshot.get("Health"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Education"))) +
+                        Double.parseDouble(String.valueOf(documentSnapshot.get("Leisure"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Transportation"))) +
+                        Double.parseDouble(String.valueOf(documentSnapshot.get("Savings"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Loans"))) +
+                        Double.parseDouble(String.valueOf(documentSnapshot.get("Shopping"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Other")));
+                budgetTextView.setText("Current Budget is " + String.format("%.2f", totalBudget[0]) + "₪");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull @NotNull Exception e) {
+                Toast.makeText(requireContext(), "You don't have a budget yet! Please create one.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        double[] amounts = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+        Map<String, Object> expsObj = new HashMap<>();
+        expsObj.put("amount", 0);
+
+        ArrayList<String> ids = new ArrayList<>();
+
+        expenses.whereEqualTo("email", currentEmail).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()){
+                    for (QueryDocumentSnapshot snapshot : task.getResult()){
+                        ids.add(snapshot.getId());
+                    }
+                    for (int i = 0;i < ids.size();i++){
+                        expenses.document(ids.get(i)).update(expsObj);
+                    }
+                    double total = 0;
+                    for(int i = 0;i < 10;i++){
+                        total += amounts[i];
+                    }
+                    remainingTextView.setText("Remaining Amount is " + String.format("%.2f", totalBudget[0] - total) +"₪");
+                    progressBarHome.setProgress((int) amounts[0]);
+                    homeTextView.setText(String.format("%.2f", amounts[0]) + "₪ /" + String.format("%.2f", currentBudget[0]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[0]));
+                    progressBarGroceries.setProgress((int) amounts[1]);
+                    groceriesTextView.setText(String.format("%.2f", amounts[1]) + "₪ /" + String.format("%.2f", currentBudget[1]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[1]));
+                    progressBarHealth.setProgress((int) amounts[2]);
+                    healthTextView.setText(String.format("%.2f", amounts[2]) + "₪ /" + String.format("%.2f", currentBudget[2]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[2]));
+                    progressBarEducation.setProgress((int) amounts[3]);
+                    educationTextView.setText(String.format("%.2f", amounts[3]) + "₪ /" + String.format("%.2f", currentBudget[3]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[3]));
+                    progressBarLeisure.setProgress((int) amounts[4]);
+                    leisureTextView.setText(String.format("%.2f", amounts[4]) + "₪ /" + String.format("%.2f", currentBudget[4]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[4]));
+                    progressBarTransportation.setProgress((int) amounts[5]);
+                    transportationTextView.setText(String.format("%.2f", amounts[5]) + "₪ /" + String.format("%.2f", currentBudget[5]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[5]));
+                    progressBarSaving.setProgress((int) amounts[6]);
+                    savingsTextView.setText(String.format("%.2f", amounts[6]) + "₪ /" + String.format("%.2f", currentBudget[6]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[6]));
+                    progressBarLoans.setProgress((int) amounts[7]);
+                    loansTextView.setText(String.format("%.2f", amounts[7]) + "₪ /" + String.format("%.2f", currentBudget[7]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[7]));
+                    progressBarShopping.setProgress((int) amounts[8]);
+                    shoppingTextView.setText(String.format("%.2f", amounts[8]) + "₪ /" + String.format("%.2f", currentBudget[8]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[8]));
+                    progressBarOther.setProgress((int) amounts[9]);
+                    otherTextView.setText(String.format("%.2f", amounts[9]) + "₪ /" + String.format("%.2f", currentBudget[9]) +"₪");
+                    Log.d("Amounts", String.valueOf(amounts[9]));
+                }
+            }
+        });
     }
 }

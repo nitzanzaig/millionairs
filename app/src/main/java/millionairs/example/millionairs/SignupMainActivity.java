@@ -43,6 +43,7 @@ public class SignupMainActivity extends AppCompatActivity {
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
     private final CollectionReference collectionReference = db.collection("users");
+    private final CollectionReference budget = db.collection("Budget");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +139,20 @@ public class SignupMainActivity extends AppCompatActivity {
                                 collectionReference.document(email).set(userObj).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
+
+                                        Map<String, Object> budObj = new HashMap<>();
+                                        budObj.put("Home", 0);
+                                        budObj.put("Education", 0);
+                                        budObj.put("Leisure", 0);
+                                        budObj.put("Transportation", 0);
+                                        budObj.put("Health", 0);
+                                        budObj.put("Groceries", 0);
+                                        budObj.put("Savings", 0);
+                                        budObj.put("Loans", 0);
+                                        budObj.put("Shopping", 0);
+                                        budObj.put("Other", 0);
+
+                                        budget.document(email).set(budObj);
                                         Intent intent = new Intent(SignupMainActivity.this,
                                                 MainActivity.class);
                                         startActivity(intent);
