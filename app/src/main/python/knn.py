@@ -5,7 +5,7 @@ import numpy as np
 
 def main(age, Living_area, Income, Home, Education, Leisure, Health, Groceries, Shopping, Transportation,
          Savings_investments, Loans_cc_fees, additional_expenses, Num_of_People):
-    df = pd.read_csv('/millionairs/app/src/main/python/data_for_project.csv')
+    df = pd.read_csv('C:\Users\Dell\AndroidStudioProjects\millionairs\app\src\main\python\data_for_project.csv')
     X = df.iloc[:, : -1]
     y = df.iloc[:, -1]
     samples_to_predict = np.array(
