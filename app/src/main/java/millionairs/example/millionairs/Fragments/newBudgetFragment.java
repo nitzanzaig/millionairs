@@ -110,7 +110,7 @@ public class newBudgetFragment extends Fragment {
                         Integer.parseInt(String.valueOf(documentSnapshot.get("Leisure"))) + Integer.parseInt(String.valueOf(documentSnapshot.get("Transportation"))) +
                         Integer.parseInt(String.valueOf(documentSnapshot.get("Savings"))) + Integer.parseInt(String.valueOf(documentSnapshot.get("Loans"))) +
                         Integer.parseInt(String.valueOf(documentSnapshot.get("Shopping"))) + Integer.parseInt(String.valueOf(documentSnapshot.get("Other")));
-                budgetTextView.setText("Current Budget is " + totalBudget[0]);
+                budgetTextView.setText("Current Budget is " + totalBudget[0]+"₪");
             }
         });
 
@@ -157,36 +157,36 @@ public class newBudgetFragment extends Fragment {
                     for(int i = 0;i < 10;i++){
                         total += amounts[i];
                     }
-                    remainingTextView.setText("Remaining Amount is " + (totalBudget[0] - total));
+                    remainingTextView.setText("Remaining Amount is " + (totalBudget[0] - total)+"₪");
                     progressBarHome.setProgress(amounts[0]);
-                    homeTextView.setText(amounts[0] + "/" + progressBarHome.getMax());
+                    homeTextView.setText(amounts[0] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[0]));
                     progressBarGroceries.setProgress(amounts[1]);
-                    groceriesTextView.setText(amounts[1] + "/" + progressBarGroceries.getMax());
+                    groceriesTextView.setText(amounts[1] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[1]));
                     progressBarHealth.setProgress(amounts[2]);
-                    healthTextView.setText(amounts[2] + "/" + progressBarHealth.getMax());
+                    healthTextView.setText(amounts[2] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[2]));
                     progressBarEducation.setProgress(amounts[3]);
-                    educationTextView.setText(amounts[3] + "/" + progressBarEducation.getMax());
+                    educationTextView.setText(amounts[3] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[3]));
                     progressBarLeisure.setProgress(amounts[4]);
-                    leisureTextView.setText(amounts[4] + "/" + progressBarLeisure.getMax());
+                    leisureTextView.setText(amounts[4] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[4]));
                     progressBarTransportation.setProgress(amounts[5]);
-                    transportationTextView.setText(amounts[5] + "/" + progressBarTransportation.getMax());
+                    transportationTextView.setText(amounts[5] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[5]));
                     progressBarSaving.setProgress(amounts[6]);
-                    savingsTextView.setText(amounts[6] + "/" + progressBarSaving.getMax());
+                    savingsTextView.setText(amounts[6] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[6]));
                     progressBarLoans.setProgress(amounts[7]);
-                    loansTextView.setText(amounts[7] + "/" + progressBarLoans.getMax());
+                    loansTextView.setText(amounts[7] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[7]));
                     progressBarShopping.setProgress(amounts[8]);
-                    shoppingTextView.setText(amounts[8] + "/" + progressBarShopping.getMax());
+                    shoppingTextView.setText(amounts[8] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[8]));
                     progressBarOther.setProgress(amounts[9]);
-                    otherTextView.setText(amounts[9] + "/" + progressBarOther.getMax());
+                    otherTextView.setText(amounts[9] + "₪ /" + progressBarOther.getMax() +"₪");
                     Log.d("Amounts", String.valueOf(amounts[9]));
 
                 }
