@@ -270,12 +270,10 @@ public class newBudgetFragment extends Fragment {
                 //age,Living area,Income,Home,Education,Leisure,Health,Groceries,Shopping,Transportation,Savings & investments,Loans & cc fees,additional expenses,Num of People
 
                 Python py = Python.getInstance();
-                // TODO: change the name to knn
                 final PyObject pyObj = py.getModule("knn");
-                // TODO: change the args to expenses
                 PyObject obj = pyObj.callAttr("main", age[0], livingArea[0], totalIncome[0], amounts[0], amounts[3], amounts[4], amounts[2], amounts[1], amounts[8], amounts[5], amounts[6], amounts[7], amounts[9], houseOldSize[0]);
                 // TODO: insert the new budget to DB
-                //zero.setText(obj.toString());
+
                 double perc = 0;
                 switch (Integer.parseInt(obj.toString())){
                     case 0:
@@ -302,6 +300,7 @@ public class newBudgetFragment extends Fragment {
                 newBudget.put("Savings", progressBarSaving.getMax() * perc);
                 newBudget.put("Shopping", progressBarShopping.getMax() * perc);
                 newBudget.put("Transportation", progressBarTransportation.getMax() * perc);
+
                 budgetRef.update(newBudget).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {

@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
 import com.nitzan.millionairs.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,6 +41,17 @@ public class SignupMainActivity extends AppCompatActivity {
     private EditText passwordEditText;
     private EditText ageEditText;
     private EditText householdEditText;
+    private EditText HomeExpensesEditText;
+    private EditText GroceriesExpensesEditText;
+    private EditText HealthExpensesEditText;
+    private EditText EducationExpensesEditText;
+    private EditText LeisureExpensesEditText;
+    private EditText TransportationExpensesEditText;
+    private EditText LoansAndCCFeesExpensesEditText;
+    private EditText SavingAndInvestExpensesEditText;
+    private EditText ShoppingExpensesEditText;
+    private EditText OtherExpenseExpensesEditText;
+    private EditText IncomeEditText;
     String gender, livingArea;
 
     private final FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -85,14 +98,86 @@ public class SignupMainActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.passwordEditTextSignup);
         ageEditText = findViewById(R.id.ageEditText);
         householdEditText = findViewById(R.id.householdEditText);
+        HomeExpensesEditText = findViewById(R.id.HomeExpenses);
+        GroceriesExpensesEditText = findViewById(R.id.GroceriesExpenses);
+        HealthExpensesEditText = findViewById(R.id.HealthExpenses);
+        EducationExpensesEditText = findViewById(R.id.EducationExpenses);
+        LeisureExpensesEditText = findViewById(R.id.LeisureExpenses);
+        TransportationExpensesEditText = findViewById(R.id.TransportationExpenses);
+        LoansAndCCFeesExpensesEditText = findViewById(R.id.LoansAndCCFeesExpenses);
+        SavingAndInvestExpensesEditText = findViewById(R.id.SavingAndInvestExpenses);
+        ShoppingExpensesEditText = findViewById(R.id.ShoppingExpenses);
+        OtherExpenseExpensesEditText = findViewById(R.id.OtherExpenseExpenses);
+        IncomeEditText = findViewById(R.id.Income);
         authStateListener = firebaseAuth -> currentUser = firebaseAuth.getCurrentUser();
+
         submitButton.setOnClickListener(v -> {
             if (!TextUtils.isEmpty(emailEditText.getText().toString()) && !TextUtils.isEmpty(passwordEditText.getText().toString())) {
                 String email = emailEditText.getText().toString().trim();
                 String password = passwordEditText.getText().toString().trim();
                 String age = ageEditText.getText().toString();
                 String household = householdEditText.getText().toString();
-                createUserEmailAccount(email, password, gender, age, household, livingArea);
+                String Income = IncomeEditText.getText().toString();
+                String Home = HomeExpensesEditText.getText().toString();
+                String Education = EducationExpensesEditText.getText().toString();
+                String Leisure = LeisureExpensesEditText.getText().toString();
+                String Health = HealthExpensesEditText.getText().toString();
+                String Groceries = GroceriesExpensesEditText.getText().toString();
+                String Transportation = TransportationExpensesEditText.getText().toString();
+                String SavingAndInvest = SavingAndInvestExpensesEditText.getText().toString();
+                String LoansAndCCFees = LoansAndCCFeesExpensesEditText.getText().toString();
+                String OtherExpense = OtherExpenseExpensesEditText.getText().toString();
+                String Shopping = ShoppingExpensesEditText.getText().toString();
+
+                int area;
+                // converting area to 0, 1, 2
+                if (livingArea.equals("South Isael")){
+                    area = 0;
+                }
+                else if(livingArea.equals("Central Israel")){
+                    area = 1;
+                }
+                else { // if (livingArea.equals("North Israel"))
+                    area = 2;
+                }
+
+                // Using KNN
+                Python py = Python.getInstance();
+                final PyObject pyObj = py.getModule("knn");
+                PyObject obj = pyObj.callAttr("main", age, area, Income, Home, Education,
+                        Leisure, Health, Groceries, Shopping, Transportation, SavingAndInvest,
+                        LoansAndCCFees, OtherExpense, household);
+
+                // Creating the budget
+                double perc = 0;
+                switch (Integer.parseInt(obj.toString())){
+                    case 0:
+                        perc = 0.89;
+                        break;
+                    case 1:
+                        perc = 0.91;
+                        break;
+                    case 2:
+                        perc = 0.93;
+                        break;
+                    case 3:
+                        perc = 0.95;
+                        break;
+                }
+
+                Map<String, Object> newBudget = new HashMap<>();
+                newBudget.put("Education", Double.parseDouble(Education) * perc);
+                newBudget.put("Groceries", Double.parseDouble(Groceries) * perc);
+                newBudget.put("Health", Double.parseDouble(Health) * perc);
+                newBudget.put("Home", Double.parseDouble(Home) * perc);
+                newBudget.put("Leisure", Double.parseDouble(Leisure) * perc);
+                newBudget.put("Loans", Double.parseDouble(LoansAndCCFees) * perc);
+                newBudget.put("Other", Double.parseDouble(OtherExpense) * perc);
+                newBudget.put("Savings", Double.parseDouble(SavingAndInvest) * perc);
+                newBudget.put("Shopping", Double.parseDouble(Shopping) * perc);
+                newBudget.put("Transportation", Double.parseDouble(Transportation) * perc);
+
+                createUserEmailAccount(email, password, gender, age, household, livingArea, newBudget);
             }else {
                 Toast.makeText(SignupMainActivity.this, "Fields can't be empty", Toast.LENGTH_SHORT).show();
             }
@@ -113,7 +198,8 @@ public class SignupMainActivity extends AppCompatActivity {
         };
     }
 
-    private void createUserEmailAccount(String email, String password, String gender, String age, String household, String livingArea){
+    private void createUserEmailAccount(String email, String password, String gender, String age,
+                                        String household, String livingArea, Map<String, Object> newBudget){
         if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(gender)
                 && !TextUtils.isEmpty(String.valueOf(age)) && !TextUtils.isEmpty(String.valueOf(household))
                 && !TextUtils.isEmpty(livingArea)){
@@ -140,7 +226,7 @@ public class SignupMainActivity extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void unused) {
 
-                                        Map<String, Object> budObj = new HashMap<>();
+                                        /*Map<String, Object> budObj = new HashMap<>();
                                         budObj.put("Home", 0);
                                         budObj.put("Education", 0);
                                         budObj.put("Leisure", 0);
@@ -150,9 +236,9 @@ public class SignupMainActivity extends AppCompatActivity {
                                         budObj.put("Savings", 0);
                                         budObj.put("Loans", 0);
                                         budObj.put("Shopping", 0);
-                                        budObj.put("Other", 0);
+                                        budObj.put("Other", 0);*/
 
-                                        budget.document(email).set(budObj);
+                                        budget.document(email).set(newBudget);
                                         Intent intent = new Intent(SignupMainActivity.this,
                                                 MainActivity.class);
                                         startActivity(intent);
