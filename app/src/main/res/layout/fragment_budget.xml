@@ -2,7 +2,7 @@
 <ScrollView android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="millionairs.example.millionairs.Fragments.BudgetFragment"
+    tools:context="millionairs.example.millionairs.Fragments.newBudgetFragment"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,21 +13,13 @@
             android:id="@+id/Add_BudgetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="280dp"
+            android:layout_marginStart="240dp"
             android:layout_marginTop="100dp"
             android:text="create budget"
             android:textSize="13dp"
             android:textStyle="bold" />
 
 
-        <TextView
-            android:id="@+id/zero"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="100dp"
-            android:text="0"
-            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/budgetTextView"
@@ -35,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Current Budget is 0"
+            android:text="Current Budget is 0 ₪ "
             android:textColor="#111E77"
             android:textSize="35sp"
             android:textStyle="bold" />
@@ -44,15 +36,16 @@
             android:id="@+id/remainingTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remaining Amount is 0"
+            android:text="Remaining Amount is 0 ₪ "
             android:layout_gravity="center"
             android:textColor="#111E77"
             android:textStyle="bold"
             android:textSize="25sp"
             android:layout_marginBottom="20dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="240dp">
 
             <LinearLayout
                 android:layout_width="190dp"
@@ -63,12 +56,12 @@
                     android:id="@+id/textViewHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Home"
-                    android:layout_marginStart="70dp"
                     android:layout_gravity="left"
+                    android:layout_marginStart="70dp"
+                    android:text="Home"
                     android:textColor="#111E77"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewHome1"
@@ -76,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginStart="60dp"
-                    android:text="0/0"
+                    android:text=" ₪ 0/0"
                     android:textColor="#111E77"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -94,6 +87,7 @@
                     android:progressDrawable="@drawable/circle" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -103,12 +97,12 @@
                     android:id="@+id/textViewGroceries"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Groceries"
-                    android:layout_marginEnd="70dp"
                     android:layout_gravity="right"
+                    android:layout_marginEnd="70dp"
+                    android:text="Groceries"
                     android:textColor="#111E77"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewGroceries1"
@@ -116,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layout_marginEnd="85dp"
-                    android:text="0/0"
+                    android:text="₪ 0/0 "
                     android:textColor="#111E77"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -125,9 +119,9 @@
                 <ProgressBar
                     android:id="@+id/progressBarGroceries"
                     style="?android:attr/progressBarStyle"
-                    android:layout_gravity="right"
                     android:layout_width="169dp"
                     android:layout_height="145dp"
+                    android:layout_gravity="right"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="30dp"
                     android:indeterminateOnly="false"
@@ -141,7 +135,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="210dp">
+            android:layout_height="240dp">
 
             <LinearLayout
                 android:layout_width="190dp"
@@ -154,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginStart="70dp"
-                    android:text="Health:"
+                    android:text="Health"
                     android:textColor="#111E77"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -165,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginStart="60dp"
-                    android:text="0/0"
+                    android:text=" ₪ 0/0 "
                     android:textColor="#111E77"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -206,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layout_marginEnd="85dp"
-                    android:text="0/0"
+                    android:text=" ₪ 0/0 "
                     android:textColor="#111E77"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -230,7 +224,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="195dp">
+            android:layout_height="240dp">
 
             <LinearLayout
                 android:layout_width="190dp"
@@ -246,7 +240,7 @@
                     android:text="Leisure"
                     android:textColor="#111E77"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewLeisure1"
@@ -254,7 +248,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginStart="60dp"
-                    android:text="0/0"
+                    android:text=" ₪ 0/0 "
                     android:textColor="#111E77"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -288,17 +282,18 @@
                     android:text="Transportation"
                     android:textColor="#111E77"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/textViewTransportation1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layout_marginEnd="85dp"
-                    android:text="0/0"
+                    android:text=" ₪ 0/0 "
                     android:textColor="#111E77"
                     android:textSize="20sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <ProgressBar
                     android:id="@+id/progressBarTransportation"
@@ -319,7 +314,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="240dp">
 
             <LinearLayout
                 android:layout_width="190dp"
@@ -343,7 +338,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginStart="60dp"
-                    android:text="0/0"
+                    android:text=" ₪ 0/0 "
                     android:textColor="#111E77"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -372,14 +367,13 @@
                     android:id="@+id/textViewSaving"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_gravity="right"
                     android:layout_marginEnd="30dp"
+                    android:gravity="center"
                     android:text="Saving &amp; Invest. "
                     android:textColor="#111E77"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textViewSaving1"
@@ -388,7 +382,7 @@
                     android:layout_gravity="right"
                     android:layout_marginEnd="85dp"
                     android:gravity="center"
-                    android:text="0/0 "
+                    android:text=" ₪ 0/0 "
                     android:textColor="#111E77"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -413,7 +407,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="240dp">
 
             <LinearLayout
                 android:layout_width="190dp"
@@ -438,7 +432,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginStart="60dp"
-                    android:text="0/0"
+                    android:text=" ₪ 0/0 "
                     android:textStyle="bold"
                     android:textColor="#111E77"
                     android:textSize="20sp" />
@@ -480,7 +474,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layout_marginEnd="85dp"
-                    android:text="0/0"
+                    android:text=" ₪ 0/0 "
                     android:textColor="#111E77"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -506,4 +500,3 @@
 
 
 </ScrollView>
-

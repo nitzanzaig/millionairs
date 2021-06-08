@@ -82,7 +82,7 @@ public class newBudgetFragment extends Fragment {
         savingsTextView = view.findViewById(R.id.textViewSaving1);
         shoppingTextView = view.findViewById(R.id.textViewShopping1);
         otherTextView = view.findViewById(R.id.textViewOther1);
-        zero = view.findViewById(R.id.zero);
+        //zero = view.findViewById(R.id.zero);
         final int[] totalBudget = {0};
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -211,7 +211,7 @@ public class newBudgetFragment extends Fragment {
                 // TODO: change the args to expenses
                 PyObject obj = pyObj.callAttr("main", 1, 2);
                 // TODO: insert the new budget to DB
-                zero.setText(obj.toString());
+                //zero.setText(obj.toString());
                 Log.d("Answer", obj.toString());
             }
         });
