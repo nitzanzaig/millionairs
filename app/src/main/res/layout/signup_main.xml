@@ -26,7 +26,7 @@
         android:id="@+id/passwordEditTextSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter password"
         android:inputType="textPassword"
         android:textColor="#0FEFDC"
@@ -42,7 +42,7 @@
         android:id="@+id/emailEditTextSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter email"
         android:inputType="textEmailAddress"
         android:textColor="#0FEFDC"
@@ -52,13 +52,13 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"/>
+        app:layout_constraintVertical_bias="0.13"/>
 
     <EditText
         android:id="@+id/ageEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter your age"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -68,7 +68,8 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextSignup"/>
 
     <TextView
         android:id="@+id/textView"
@@ -83,7 +84,7 @@
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <!--<de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
@@ -107,7 +108,7 @@
         android:id="@+id/householdEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter your house hold size"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -117,7 +118,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:layout_constraintVertical_bias="0.31" />
 
     <TextView
         android:id="@+id/textView02"
@@ -148,7 +149,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView02"
         app:layout_constraintTop_toBottomOf="@+id/householdEditText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.833" />
 
     <TextView
         android:id="@+id/textView17"
@@ -179,13 +180,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView17"
         app:layout_constraintTop_toBottomOf="@+id/spinnerGender"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
         android:id="@+id/HomeExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Home expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -195,13 +196,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintTop_toBottomOf="@+id/Income"/>
 
     <EditText
         android:id="@+id/GroceriesExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Groceries expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -211,13 +213,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.41"
+        app:layout_constraintTop_toBottomOf="@+id/HomeExpenses"/>
 
     <EditText
         android:id="@+id/HealthExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Health expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -227,13 +230,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.47"
+        app:layout_constraintTop_toBottomOf="@+id/GroceriesExpenses"/>
 
     <EditText
         android:id="@+id/EducationExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Education expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -243,13 +247,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintVertical_bias="0.53"
+        app:layout_constraintTop_toBottomOf="@+id/HealthExpenses"/>
 
     <EditText
         android:id="@+id/LeisureExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Leisure expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -259,13 +264,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.59"
+        app:layout_constraintTop_toBottomOf="@+id/EducationExpenses"/>
 
     <EditText
         android:id="@+id/TransportationExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Transportation expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -275,14 +281,15 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintTop_toBottomOf="@+id/LeisureExpenses"/>
 
     <EditText
         android:id="@+id/LoansAndCCFeesExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter average Loans and CC Fees expenses"
+        android:ems="16"
+        android:hint="Enter average Loans &amp; CC Fees expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
         android:textColorHint="#0FEFDC"
@@ -291,13 +298,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintTop_toBottomOf="@+id/TransportationExpenses"/>
 
     <EditText
         android:id="@+id/SavingAndInvestExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Saving &amp; Invest. expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -307,13 +315,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.75"
+        app:layout_constraintTop_toBottomOf="@+id/LoansAndCCFeesExpenses"/>
 
     <EditText
         android:id="@+id/ShoppingExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Shopping expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -323,13 +332,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.8"
+        app:layout_constraintTop_toBottomOf="@+id/SavingAndInvestExpenses"/>
 
     <EditText
         android:id="@+id/OtherExpenseExpenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Other expenses"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -339,13 +349,14 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintTop_toBottomOf="@+id/ShoppingExpenses"/>
 
     <EditText
         android:id="@+id/Income"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
+        android:ems="16"
         android:hint="Enter average Income"
         android:inputType="number"
         android:textColor="#0FEFDC"
@@ -355,6 +366,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.9"
+        app:layout_constraintTop_toBottomOf="@+id/textView17"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
