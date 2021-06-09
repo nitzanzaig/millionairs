@@ -128,7 +128,7 @@ public class newBudgetFragment extends Fragment {
                         Double.parseDouble(String.valueOf(documentSnapshot.get("Leisure"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Transportation"))) +
                         Double.parseDouble(String.valueOf(documentSnapshot.get("Savings"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Loans"))) +
                         Double.parseDouble(String.valueOf(documentSnapshot.get("Shopping"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Other")));
-                budgetTextView.setText("Current Budget is " + String.format("%.2f", totalBudget[0]) + "₪");
+                budgetTextView.setText("Current Budget is " + String.format("%.0f", totalBudget[0]) + "₪");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -181,36 +181,36 @@ public class newBudgetFragment extends Fragment {
                     for(int i = 0;i < 10;i++){
                         total += amounts[i];
                     }
-                    remainingTextView.setText("Remaining Amount is " + String.format("%.2f", totalBudget[0] - total) +"₪");
+                    remainingTextView.setText("Remaining Amount is " + String.format("%.0f", totalBudget[0] - total) +"₪");
                     progressBarHome.setProgress((int) amounts[0]);
-                    homeTextView.setText(String.format("%.2f", amounts[0]) + "₪ /" + String.format("%.2f", currentBudget[0]) +"₪");
+                    homeTextView.setText(String.format("%.0f", amounts[0]) + "₪ /" + String.format("%.0f", currentBudget[0]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[0]));
                     progressBarGroceries.setProgress((int) amounts[1]);
-                    groceriesTextView.setText(String.format("%.2f", amounts[1]) + "₪ /" + String.format("%.2f", currentBudget[1]) +"₪");
+                    groceriesTextView.setText(String.format("%.0f", amounts[1]) + "₪ /" + String.format("%.0f", currentBudget[1]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[1]));
                     progressBarHealth.setProgress((int) amounts[2]);
-                    healthTextView.setText(String.format("%.2f", amounts[2]) + "₪ /" + String.format("%.2f", currentBudget[2]) +"₪");
+                    healthTextView.setText(String.format("%.0f", amounts[2]) + "₪ /" + String.format("%.0f", currentBudget[2]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[2]));
                     progressBarEducation.setProgress((int) amounts[3]);
-                    educationTextView.setText(String.format("%.2f", amounts[3]) + "₪ /" + String.format("%.2f", currentBudget[3]) +"₪");
+                    educationTextView.setText(String.format("%.0f", amounts[3]) + "₪ /" + String.format("%.0f", currentBudget[3]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[3]));
                     progressBarLeisure.setProgress((int) amounts[4]);
-                    leisureTextView.setText(String.format("%.2f", amounts[4]) + "₪ /" + String.format("%.2f", currentBudget[4]) +"₪");
+                    leisureTextView.setText(String.format("%.0f", amounts[4]) + "₪ /" + String.format("%.0f", currentBudget[4]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[4]));
                     progressBarTransportation.setProgress((int) amounts[5]);
-                    transportationTextView.setText(String.format("%.2f", amounts[5]) + "₪ /" + String.format("%.2f", currentBudget[5]) +"₪");
+                    transportationTextView.setText(String.format("%.0f", amounts[5]) + "₪ /" + String.format("%.0f", currentBudget[5]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[5]));
                     progressBarSaving.setProgress((int) amounts[6]);
-                    savingsTextView.setText(String.format("%.2f", amounts[6]) + "₪ /" + String.format("%.2f", currentBudget[6]) +"₪");
+                    savingsTextView.setText(String.format("%.0f", amounts[6]) + "₪ /" + String.format("%.0f", currentBudget[6]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[6]));
                     progressBarLoans.setProgress((int) amounts[7]);
-                    loansTextView.setText(String.format("%.2f", amounts[7]) + "₪ /" + String.format("%.2f", currentBudget[7]) +"₪");
+                    loansTextView.setText(String.format("%.0f", amounts[7]) + "₪ /" + String.format("%.0f", currentBudget[7]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[7]));
                     progressBarShopping.setProgress((int) amounts[8]);
-                    shoppingTextView.setText(String.format("%.2f", amounts[8]) + "₪ /" + String.format("%.2f", currentBudget[8]) +"₪");
+                    shoppingTextView.setText(String.format("%.0f", amounts[8]) + "₪ /" + String.format("%.0f", currentBudget[8]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[8]));
                     progressBarOther.setProgress((int) amounts[9]);
-                    otherTextView.setText(String.format("%.2f", amounts[9]) + "₪ /" + String.format("%.2f", currentBudget[9]) +"₪");
+                    otherTextView.setText(String.format("%.0f", amounts[9]) + "₪ /" + String.format("%.0f", currentBudget[9]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[9]));
 
                 }
@@ -290,16 +290,16 @@ public class newBudgetFragment extends Fragment {
                         break;
                 }
                 Map<String, Object> newBudget = new HashMap<>();
-                newBudget.put("Education", progressBarEducation.getMax() * perc);
-                newBudget.put("Groceries", progressBarGroceries.getMax() * perc);
-                newBudget.put("Health", progressBarHealth.getMax() * perc);
-                newBudget.put("Home", progressBarHome.getMax() * perc);
-                newBudget.put("Leisure", progressBarLeisure.getMax() * perc);
-                newBudget.put("Loans", progressBarLoans.getMax() * perc);
-                newBudget.put("Other", progressBarOther.getMax() * perc);
-                newBudget.put("Savings", progressBarSaving.getMax() * perc);
-                newBudget.put("Shopping", progressBarShopping.getMax() * perc);
-                newBudget.put("Transportation", progressBarTransportation.getMax() * perc);
+                newBudget.put("Education", (int) (progressBarEducation.getMax() * perc));
+                newBudget.put("Groceries", (int) (progressBarGroceries.getMax() * perc));
+                newBudget.put("Health", (int) (progressBarHealth.getMax() * perc));
+                newBudget.put("Home", (int) (progressBarHome.getMax() * perc));
+                newBudget.put("Leisure",(int) (progressBarLeisure.getMax() * perc));
+                newBudget.put("Loans", (int) (progressBarLoans.getMax() * perc));
+                newBudget.put("Other", (int) (progressBarOther.getMax() * perc));
+                newBudget.put("Savings", (int) (progressBarSaving.getMax() * perc));
+                newBudget.put("Shopping", (int) (progressBarShopping.getMax() * perc));
+                newBudget.put("Transportation", (int) (progressBarTransportation.getMax() * perc));
 
                 budgetRef.update(newBudget).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -347,7 +347,7 @@ public class newBudgetFragment extends Fragment {
                         Double.parseDouble(String.valueOf(documentSnapshot.get("Leisure"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Transportation"))) +
                         Double.parseDouble(String.valueOf(documentSnapshot.get("Savings"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Loans"))) +
                         Double.parseDouble(String.valueOf(documentSnapshot.get("Shopping"))) + Double.parseDouble(String.valueOf(documentSnapshot.get("Other")));
-                budgetTextView.setText("Current Budget is " + String.format("%.2f", totalBudget[0]) + "₪");
+                budgetTextView.setText("Current Budget is " + String.format("%.0f", totalBudget[0]) + "₪");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -377,36 +377,36 @@ public class newBudgetFragment extends Fragment {
                     for(int i = 0;i < 10;i++){
                         total += amounts[i];
                     }
-                    remainingTextView.setText("Remaining Amount is " + String.format("%.2f", totalBudget[0] - total) +"₪");
+                    remainingTextView.setText("Remaining Amount is " + String.format("%.0f", totalBudget[0] - total) +"₪");
                     progressBarHome.setProgress((int) amounts[0]);
-                    homeTextView.setText(String.format("%.2f", amounts[0]) + "₪ /" + String.format("%.2f", currentBudget[0]) +"₪");
+                    homeTextView.setText(String.format("%.0f", amounts[0]) + "₪ /" + String.format("%.0f", currentBudget[0]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[0]));
                     progressBarGroceries.setProgress((int) amounts[1]);
-                    groceriesTextView.setText(String.format("%.2f", amounts[1]) + "₪ /" + String.format("%.2f", currentBudget[1]) +"₪");
+                    groceriesTextView.setText(String.format("%.0f", amounts[1]) + "₪ /" + String.format("%.0f", currentBudget[1]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[1]));
                     progressBarHealth.setProgress((int) amounts[2]);
-                    healthTextView.setText(String.format("%.2f", amounts[2]) + "₪ /" + String.format("%.2f", currentBudget[2]) +"₪");
+                    healthTextView.setText(String.format("%.0f", amounts[2]) + "₪ /" + String.format("%.0f", currentBudget[2]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[2]));
                     progressBarEducation.setProgress((int) amounts[3]);
-                    educationTextView.setText(String.format("%.2f", amounts[3]) + "₪ /" + String.format("%.2f", currentBudget[3]) +"₪");
+                    educationTextView.setText(String.format("%.0f", amounts[3]) + "₪ /" + String.format("%.0f", currentBudget[3]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[3]));
                     progressBarLeisure.setProgress((int) amounts[4]);
-                    leisureTextView.setText(String.format("%.2f", amounts[4]) + "₪ /" + String.format("%.2f", currentBudget[4]) +"₪");
+                    leisureTextView.setText(String.format("%.0f", amounts[4]) + "₪ /" + String.format("%.0f", currentBudget[4]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[4]));
                     progressBarTransportation.setProgress((int) amounts[5]);
-                    transportationTextView.setText(String.format("%.2f", amounts[5]) + "₪ /" + String.format("%.2f", currentBudget[5]) +"₪");
+                    transportationTextView.setText(String.format("%.0f", amounts[5]) + "₪ /" + String.format("%.0f", currentBudget[5]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[5]));
                     progressBarSaving.setProgress((int) amounts[6]);
-                    savingsTextView.setText(String.format("%.2f", amounts[6]) + "₪ /" + String.format("%.2f", currentBudget[6]) +"₪");
+                    savingsTextView.setText(String.format("%.0f", amounts[6]) + "₪ /" + String.format("%.0f", currentBudget[6]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[6]));
                     progressBarLoans.setProgress((int) amounts[7]);
-                    loansTextView.setText(String.format("%.2f", amounts[7]) + "₪ /" + String.format("%.2f", currentBudget[7]) +"₪");
+                    loansTextView.setText(String.format("%.0f", amounts[7]) + "₪ /" + String.format("%.0f", currentBudget[7]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[7]));
                     progressBarShopping.setProgress((int) amounts[8]);
-                    shoppingTextView.setText(String.format("%.2f", amounts[8]) + "₪ /" + String.format("%.2f", currentBudget[8]) +"₪");
+                    shoppingTextView.setText(String.format("%.0f", amounts[8]) + "₪ /" + String.format("%.0f", currentBudget[8]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[8]));
                     progressBarOther.setProgress((int) amounts[9]);
-                    otherTextView.setText(String.format("%.2f", amounts[9]) + "₪ /" + String.format("%.2f", currentBudget[9]) +"₪");
+                    otherTextView.setText(String.format("%.0f", amounts[9]) + "₪ /" + String.format("%.0f", currentBudget[9]) +"₪");
                     Log.d("Amounts", String.valueOf(amounts[9]));
                 }
             }

@@ -62,7 +62,10 @@ def generate_data(data):
     for key in pattern_vocab:
         pattern_vocab[key] = int(pattern_vocab[key])
 
-    with open('english_pattern_vocab.json', 'w') as file:
+    filename = join(dirname(__file__), "english_labels_list.json")
+    filename1 = join(dirname(__file__), "english_pattern_vocab.json")
+
+    with open(filename1, 'w') as file:
         json.dump(pattern_vocab, file)
 
     # Separate labels_vocab keys, sort them and save it to a json file
@@ -70,7 +73,7 @@ def generate_data(data):
         labels_dict.append(key)
     labels_dict = sorted(labels_dict)
 
-    with open('english_labels_list.json', 'w') as file:
+    with open(filename, 'w') as file:
         json.dump(labels_dict, file)
 
     return labels_dict, pattern_vocab, input_x, input_y
@@ -93,10 +96,15 @@ def create_model(training, output):
 
 def chat(model, labels_dict, pattern_vocab, message):
     if message == '':
-        return "Bot: Say something!"
+        return "Say something!"
     else:
+
+        main_filename = join(dirname(__file__), "english_dataset.json")
+        with open(main_filename, 'r') as data:
+            dataset = json.load(data)
+
         if message.lower() in dataset["data"][1]["patterns"]:
-            return "Bot: " + random.choice(dataset["data"][1]["responses"])
+            return random.choice(dataset["data"][1]["responses"])
 
         word_vec = CountVectorizer(
             binary=True, vocabulary=pattern_vocab, tokenizer=tokenize_stem)
@@ -113,10 +121,10 @@ def chat(model, labels_dict, pattern_vocab, message):
                 if tg['tag'] == tag:
                     responses = tg['responses']
             final_response = random.choice(responses)
-            return "Bot: " + final_response
+            return final_response
             all_responses.append([tag, final_response])
             if tag == "wellness-response":
-                return "Bot: How can I help you today?"
+                return "How can I help you today?"
         else:
             return "Sorry, I dont understand"
 
@@ -134,21 +142,22 @@ def chat(model, labels_dict, pattern_vocab, message):
                 if new_response != already_given:
                     return "Bot: " + new_response
                     if tag == "wellness-response":
-                        return "Bot: How can I help you today?"
+                        return "How can I help you today?"
                     break
 
 def main(message):
 
     main_filename = join(dirname(__file__), "english_dataset.json")
-    with open(main_filename, 'r') as dataset:
+    with open(main_filename, 'r') as data:
+        dataset = json.load(data)
+        current_model = join(dirname(__file__), "english_model.h5")
         try:
             labels_dict, pattern_vocab = load_data(dataset)
-            current_model = join(dirname(__file__), "english_model.h5")
             loaded_model = keras.models.load_model(current_model)
             return chat(loaded_model, labels_dict, pattern_vocab, message)
         except:
             labels_dict, pattern_vocab, input_x, input_y = generate_data(dataset)
             model = create_model(input_x, input_y)
             model.fit(input_x, input_y, epochs=500, batch_size=8)
-            model.save("app/src/main/python/english_model.h5")
+            model.save(current_model)
             return chat(model, labels_dict, pattern_vocab, message)
