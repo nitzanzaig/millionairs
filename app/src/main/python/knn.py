@@ -16,7 +16,7 @@ def main(age, Living_area, Income, Home, Education, Leisure, Health, Groceries, 
         [age, Living_area, Income, Home, Education, Leisure, Health, Groceries, Shopping, Transportation,
          Savings_investments, Loans_cc_fees, additional_expenses, Num_of_People]).reshape(1, -1)
 
-    model = neighbors.KNeighborsClassifier(n_neighbors=5)
+    model = neighbors.KNeighborsClassifier(n_neighbors=2)
     model.fit(X, y)
     budegt = model.predict(samples_to_predict)
     return budegt[0]
