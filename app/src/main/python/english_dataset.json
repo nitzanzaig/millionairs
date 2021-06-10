@@ -60,7 +60,7 @@
      "responses": ["It's highly unrecommended! This money is the foundation for your economical stability when you'll be older.","In the future this money will be more valueable for you, so it's highly recommended to wait."]
     },
     {"tag": "electrics",
-     "patterns": ["how can i save on my electric bill?", "tell me a way to reduce my electic bill"],
+     "patterns": ["how can i save on my electric bill?", "tell me a way to reduce my electic bill", "how can I save money on electricity"],
      "responses": ["Use the dryer for laundry only when needed.", "Make sure the laundry machine is full before using it.", "Make sure the dish washer is full before using it.", "Before turning on the AC, try to use the fan.", "On sunny days, avoid using the water heater.", "Turn off the lights when you leave a room (and there is no one else in there of course :P)", "Buy LED light bulbs."]
     },
     {"tag": "shopping",
@@ -81,6 +81,10 @@
     }, 
     {"tag": "respond-again", 
     "patterns": ["can you give me another tip?", "what if i can't do it?", "try another option"], 
-    "responses": ["Of course! Let me think about it. \nMaybe you can try the following: ", "Sure! Give me a second to think about a new option. \nMaybe you can try the following: "]}
+    "responses": ["Of course! Let me think about it. \nMaybe you can try the following: ", "Sure! Give me a second to think about a new option. \nMaybe you can try the following: "]
+    },
+    {"tag": "save-money",
+    "patterns": ["how can I save money?"],
+    "responses": ["Can you be more specific?"]}
 ]
 }
