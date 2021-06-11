@@ -6,23 +6,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="millionairs.example.millionairs.Fragments.IncomeFragment">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/buttonImageView"
-        android:layout_width="61dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="100dp"
-        android:src="@drawable/pl"
-        app:civ_border_color="#FF000000"
-        app:civ_border_width="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/incomeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Current Income is 0 ₪ "
+        android:textColor="#111E77"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/profile_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintHorizontal_bias="0.592"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.584" />
+        app:layout_constraintVertical_bias="0.953" />
+
+    <Button
+        android:id="@+id/buttonImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/incomeEditText"
+        app:layout_constraintVertical_bias="0.563" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
@@ -31,6 +45,7 @@
         android:src="@drawable/income2"
         app:civ_border_color="#F3DC0D"
         app:civ_border_width="4dp"
+        android:layout_marginTop="95dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -43,9 +58,9 @@
         android:layout_width="232dp"
         android:layout_height="42dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="300dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:ems="10"
         android:hint="Please enter Paycheck"
         android:inputType="number"
